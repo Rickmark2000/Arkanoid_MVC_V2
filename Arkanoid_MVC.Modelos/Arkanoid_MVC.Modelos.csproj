@@ -190,6 +190,7 @@
     <Compile Include="Interfaces\Listas\IListaClase.cs" />
     <Compile Include="Interfaces\Management\IManagement.cs" />
     <Compile Include="Interfaces\Repositorio\IRepositorio.cs" />
+    <Compile Include="Modelos\Conexiones.cs" />
     <Compile Include="Modelos\Figura.cs" />
     <Compile Include="Modelos\FiguraSinVelocidad.cs" />
     <Compile Include="Modelos\FiguraVelocidad.cs" />

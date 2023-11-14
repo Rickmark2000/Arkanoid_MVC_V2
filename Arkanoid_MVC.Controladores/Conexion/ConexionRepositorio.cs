@@ -7,31 +7,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace Arkanoid_MVC.Controladores.Conexion
 {
-    public class Conexiones
+    public class ConexionRepositorio
     {
-        protected string conexion;
-        private string raizProyecto;
-        private DBConsultas consultas;
-
-        public Conexiones(string conexion,string raizProyecto) 
+        private Conexiones Conexiones;
+        private string conexion;
+        public ConexionRepositorio(Conexiones conexiones)
         {
-            this.conexion = conexion;
-            this.raizProyecto = raizProyecto;
-            consultas = new DBConsultas(conexion, raizProyecto);
+         this.Conexiones = conexiones;
+         conexion = Conexiones.conexion;
         }
-
-        public Conexiones(string conexion)
-        {
-            this.conexion=conexion;
-        }
-
 
         public void vaciar_DB()
         {
+            
+
             IRepositorio<Jugadores> jugadores = new RepositorioJugador<Jugadores>(conexion);
             IRepositorio<Puntuaciones> puntuaciones = new RepositorioPuntuacion<Puntuaciones>(conexion);
             IRepositorio<Usuarios> usuarios = new RepositorioUsuarios<Usuarios>(conexion);
@@ -49,17 +41,6 @@ namespace Arkanoid_MVC.Controladores.Conexion
             {
                 elements.eliminar(element);
             }
-        }
-
-        public void mostrar_select(string consulta,DataGrid datos)
-        {
-            
-            consultas.mostrar_select(consulta, datos);
-        }
-
-        public List<Object> recuperar_select<I>(string consulta) where I : class
-        {
-            return consultas.recuperar_consulta<I>(consulta);
         }
     }
 }

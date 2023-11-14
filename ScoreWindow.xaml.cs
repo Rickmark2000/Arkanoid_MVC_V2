@@ -13,9 +13,13 @@ namespace Arkanoid_MVC
 
     public partial class ScoreWindow : Window
     {
+        private Consulta conexionConsultas;
+        private Conexiones conexiones;
         public ScoreWindow(Usuarios usuario, Conexiones conexion)
         {
             InitializeComponent();
+            this.conexiones = conexion;
+            conexionConsultas = new Consulta(conexion);
            
             string consulta = $"select * from usuarios u WHERE u.Id ={usuario.id}";
 
@@ -25,7 +29,7 @@ namespace Arkanoid_MVC
               $"inner join puntuaciones p on p.idJugador = j.id WHERE u.Id ={usuario.id}";
             */
 
-            conexion.mostrar_select(consulta, datos);
+            conexionConsultas.mostrar_select(consulta, datos);
         }
     }
 }

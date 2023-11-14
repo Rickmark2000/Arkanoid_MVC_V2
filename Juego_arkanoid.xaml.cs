@@ -16,6 +16,8 @@ using System.Configuration;
 using System.Collections.Generic;
 using Arkanoid_MVC.Modelos.Repositorios;
 using Arkanoid_MVC.Controladores.Partida_Manage;
+using Arkanoid_MVC.Controladores.Conexion;
+using Arkanoid_MVC.Vista;
 
 namespace Arkanoid_MVC
 {
@@ -27,10 +29,13 @@ namespace Arkanoid_MVC
         private Usuarios usuarioSesion;
         private Partida partida;
         private ControlesJugador controles;
+        private ConexionRepositorio conexionRepositorio;
+        private Conexiones conexiones;
 
-        public Juego_arkanoid(Usuarios usuarioSesion,int num_bolas,float velocidad_jugador,float velocidad_bola, Controladores.Conexion.Conexiones conexion)
+        public Juego_arkanoid(Usuarios usuarioSesion,int num_bolas,float velocidad_jugador,float velocidad_bola, Conexiones conexion)
         {
             InitializeComponent();
+            this.conexiones = conexion;
             this.usuarioSesion = usuarioSesion;
             controles = new ControlesJugador(ventana, velocidad_jugador);
             partida = new Partida(num_bolas,velocidad_bola);
@@ -60,9 +65,10 @@ namespace Arkanoid_MVC
             if (partida.gameOver())
             {
                 partida.terminar_partida(timer, puntuacion_actual, usuarioSesion);
-                MainWindow menu = new MainWindow();
-                menu.Show();
-                this.Close();
+                Menu_Principal menu = new Menu_Principal(usuarioSesion,conexiones);
+                    menu.Show();
+                    this.Close();
+                
             }
         }
     }
