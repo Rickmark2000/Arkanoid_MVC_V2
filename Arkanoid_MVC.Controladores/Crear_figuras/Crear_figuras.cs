@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Controladores.Juego
 {
-    public class Juego
+    public class Crear_figuras
     {
 
         public Ellipse crear_bola(double with,double height, Canvas canvas_juego)

@@ -77,6 +77,7 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.IdentityModel.Tokens.6.24.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -255,7 +256,7 @@
       <Name>Arkanoid_MVC.Controladores</Name>
     </ProjectReference>
     <ProjectReference Include="Arkanoid_MVC.Modelos\Arkanoid_MVC.Modelos.csproj">
-      <Project>{5A40DD8D-B3B2-44FC-B292-37D7BF1F4156}</Project>
+      <Project>{5a40dd8d-b3b2-44fc-b292-37d7bf1f4156}</Project>
       <Name>Arkanoid_MVC.Modelos</Name>
     </ProjectReference>
   </ItemGroup>

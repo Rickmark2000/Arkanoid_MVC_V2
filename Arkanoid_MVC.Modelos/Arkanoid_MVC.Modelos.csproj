@@ -177,7 +177,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContextoDB\ContextArkanoid.cs" />
+    <Compile Include="DB\ContextoDB\ContextArkanoid.cs" />
+    <Compile Include="DB\DB_Consultas\DB_Consultas.cs" />
     <Compile Include="Enum\EColision.cs" />
     <Compile Include="Enum\TipoFigura.cs" />
     <Compile Include="Interfaces\Factory\Ifiguras_Factory.cs" />
@@ -188,7 +189,7 @@
     <Compile Include="Interfaces\Listas\IDictionaryFigura.cs" />
     <Compile Include="Interfaces\Listas\Ilista_figura.cs" />
     <Compile Include="Interfaces\Management\Ifiguras_management.cs" />
-    <Compile Include="Interfaces\Repositorios\IRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorio\IRepositorio.cs" />
     <Compile Include="Modelos\Figura.cs" />
     <Compile Include="Modelos\Figura_SinVelocidad.cs" />
     <Compile Include="Modelos\Figura_Velocidad.cs" />
@@ -226,11 +227,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB\Arkanoid.ldf">
+    <Content Include="DB\DB\Arkanoid.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Arkanoid.mdf</DependentUpon>
     </Content>
-    <Content Include="DB\Arkanoid.mdf">
+    <Content Include="DB\DB\Arkanoid.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -246,6 +247,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -17,7 +17,7 @@ namespace Arkanoid_MVC.Modelos.Interfaces
 
         void eliminar(T value);
 
-        List<T> ObtenerList();
+        List<T> ObtenerBloques();
 
     }
 }

@@ -29,7 +29,7 @@ namespace Arkanoid_MVC.Controladores.Colisiones
             Rect rect_bola = new Rect(Canvas.GetLeft(ball), Canvas.GetTop(ball), ball.Width, ball.Height);
             Rect rect_plataforma;
 
-            foreach (Rectangle bloque in bloques_management.ObtenerList())
+            foreach (Rectangle bloque in bloques_management.ObtenerBloques())
             {
                 rect_plataforma = new Rect(Canvas.GetLeft(bloque), Canvas.GetTop(bloque), bloque.Width, bloque.Height);
                 if (rect_plataforma.IntersectsWith(rect_bola))

@@ -37,7 +37,7 @@ namespace Arkanoid_MVC.Controladores.Management
             listaObjetos.Remove(value);
         }
 
-        public List<Rectangle> ObtenerList()
+        public List<Rectangle> ObtenerBloques()
         {
             return listaObjetos.ToList();
         }

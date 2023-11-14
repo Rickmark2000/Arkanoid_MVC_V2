@@ -11,8 +11,6 @@
    Height="{Binding Height, RelativeSource={RelativeSource AncestorType=Window}}">
             <Label x:Name="txtScore" Content="Puntuacion:0" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.713,0.015" Width="218"/>
         </Canvas>
-        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="47,240,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copiar" Content="Label" HorizontalAlignment="Left" Margin="47,179,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

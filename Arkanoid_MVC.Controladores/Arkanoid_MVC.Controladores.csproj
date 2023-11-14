@@ -53,16 +53,16 @@
     <Compile Include="Colisiones\ColisionBloque.cs" />
     <Compile Include="Colisiones\ColisionInterseccion.cs" />
     <Compile Include="Controles\Controles_jugador.cs" />
-    <Compile Include="DB_controller\DB_Controller.cs" />
     <Compile Include="Diseño Figuras\Diseno.cs" />
     <Compile Include="Diseño Figuras\DisenoElipse.cs" />
     <Compile Include="Diseño Figuras\DisenoRectangulo.cs" />
     <Compile Include="Factory\Elipse_factory.cs" />
     <Compile Include="Factory\Figuras_factory.cs" />
     <Compile Include="Factory\Rectangle_factory.cs" />
-    <Compile Include="Juego\Juego.cs" />
+    <Compile Include="Crear_figuras\Crear_figuras.cs" />
     <Compile Include="Management\BloquesManagement.cs" />
     <Compile Include="Observer\ObservarColision.cs" />
+    <Compile Include="Partida_Manage\Partida_Manage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

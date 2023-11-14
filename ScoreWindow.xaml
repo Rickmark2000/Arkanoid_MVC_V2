@@ -12,6 +12,7 @@
                 <DataGridTextColumn Header="Usuario" Binding="{Binding Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Jugador" Binding="{Binding nombre}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding nick}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Email" Binding="{Binding email}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Puntuacion" Binding="{Binding puntuacion}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Vidas" Binding="{Binding vidas}"></DataGridTextColumn>
             </DataGrid.Columns>

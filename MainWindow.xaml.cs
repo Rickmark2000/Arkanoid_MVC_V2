@@ -1,4 +1,5 @@
 ﻿
+using Arkanoid_MVC.Modelos.Modelos;
 using System.Windows;
 
 
@@ -21,7 +22,8 @@ namespace Arkanoid_MVC
 
         public void empezar_partida(object sender, RoutedEventArgs e)
         {
-            Juego_arkanoid juego = new Juego_arkanoid();
+            Usuarios u = new Usuarios(1, "ewqeq", "dsadsa", "dsadsa", "ewqe");
+            Juego_arkanoid juego = new Juego_arkanoid(u);
             juego.Show();
             this.Close();
         }

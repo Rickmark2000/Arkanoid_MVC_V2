@@ -2,16 +2,19 @@
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Arkanoid_MVC.Modelos.Interfaces;
+using System.Collections.Generic;
+using System;
 
 namespace Arkanoid_MVC.Controladores.DB_Controller
 {
-    public class DB_Controller
+    public class DB_Consultas
     {
         private string contexto;
 
-        public DB_Controller(string contexto)
+        public DB_Consultas(string contexto,string directorioBase)
         {
             this.contexto = contexto;
+            AppDomain.CurrentDomain.SetData("DataDirectory", directorioBase);
         }
 
         public void realizar_consulta(string consulta, System.Windows.Controls.DataGrid datos)
@@ -41,6 +44,35 @@ namespace Arkanoid_MVC.Controladores.DB_Controller
                 }
 
             }
+        }
+
+        public List<Object> recuperar_consulta<I>(string consulta)
+        {
+
+
+            using (SqlConnection conexion = new SqlConnection(contexto))
+            {
+                List<object> lista = new List<object>();
+                using (SqlCommand comando = new SqlCommand(consulta, conexion))
+                {
+                    conexion.Open();
+                    using (SqlDataReader reader = comando.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                lista.Add(reader[i]);
+                            }
+                        }
+                    }
+
+                }
+
+                return lista;
+            }
+
+
         }
 
         public void eliminar_tabla<I>(IRepositorio<I> elements) where I:class
