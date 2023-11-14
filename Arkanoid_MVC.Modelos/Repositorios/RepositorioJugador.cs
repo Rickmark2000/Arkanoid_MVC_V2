@@ -1,6 +1,7 @@
 ﻿using Arkanoid_MVC.Modelos.ContextoDB;
 using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Modelos.Modelos;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Metadata;
@@ -10,59 +11,42 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Modelos.Repositorios
 {
-    public class RepositorioJugador<I> : IRepositorio<I> where I : Jugadores
+    public class RepositorioJugador : IRepositorio<Jugadores>
     {
-        private readonly DBContexto<I> context;
-        public List<I> listaObjetos { get; }
+        private readonly DBContexto context;
 
-        public RepositorioJugador(string conexion)
+        public RepositorioJugador(DBContexto contexto)
         {
-            context = new DBContexto<I>(conexion);
-            listaObjetos = context.jugadores.ToList();
+            context = contexto;
         }
 
-        public I buscar(I entity)
+        public async Task<Jugadores> buscar( Jugadores entity)
         {
-            return listaObjetos.Find(n => n == entity);
+            return await context.jugadores.FirstOrDefaultAsync(n => n == entity);
         }
 
-        public I buscar(int value)
+        public async Task<Jugadores> buscar(int value)
         {
-            return listaObjetos.Find(n => n.id == value);
+            return await context.jugadores.FirstOrDefaultAsync(n => n.id == value);
         }
 
-        public void eliminar(I entity)
+        public async Task eliminar(Jugadores entity)
         {
-            I jugador = buscar(entity);
-            context.jugadores.Remove(jugador);
-            context.SaveChanges();
+            context.jugadores.Remove(entity);
+            await context.SaveChangesAsync();
 
         }
 
-        public List<I> leer()
+        public async Task<List<Jugadores>> leer()
         {
-            return listaObjetos;
+            return await context.jugadores.ToListAsync();
         }
 
-        public void registrar(I entity)
+        public async Task registrar(Jugadores entity)
         {
-            while (repetido(entity.id))
-            {
-                entity.id++;
-            }
             context.jugadores.Add(entity);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
 
-        }
-
-        public bool repetido(I entity)
-        {
-            return listaObjetos.Any(e => e.Equals(entity));
-        }
-
-        public bool repetido(int entity)
-        {
-            return listaObjetos.Any(e => e.id.Equals(entity));
         }
     }
 }

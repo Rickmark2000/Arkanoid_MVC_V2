@@ -6,61 +6,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Arkanoid_MVC.Modelos.Repositorios
 {
-    public class RepositorioPuntuacion<I> : IRepositorio<I> where I : Puntuaciones
+    public class RepositorioPuntuacion : IRepositorio<Puntuaciones> 
     {
-        private readonly DBContexto<I> context;
-        public List<I> listaObjetos { get; }
+        private readonly DBContexto context;
 
-        public RepositorioPuntuacion(string conexion)
+        public RepositorioPuntuacion(DBContexto contexto)
         {
-            context = new DBContexto<I>(conexion);
-            listaObjetos = context.Puntuaciones.ToList();
+            context = contexto;
         }
 
-        public I buscar(I entity)
+        public async Task<Puntuaciones> buscar(Puntuaciones entity)
         {
-            return listaObjetos.Find(n => n == entity);
+            return await context.Puntuaciones.FirstOrDefaultAsync(n => n == entity);
         }
 
-        public I buscar(int value)
+        public async Task<Puntuaciones> buscar(int value)
         {
-            return listaObjetos.Find(n => n.id == value);
+            return await context.Puntuaciones.FirstOrDefaultAsync(n => n.id == value);
         }
 
-        public void eliminar(I entity)
+        public async Task eliminar(Puntuaciones entity)
         {
-            I jugador = buscar(entity);
-            context.Puntuaciones.Remove(jugador);
-            context.SaveChanges();
+            context.Puntuaciones.Remove(entity);
+            await context.SaveChangesAsync();
 
         }
 
-        public List<I> leer()
+        public async Task<List<Puntuaciones>> leer()
         {
-            return listaObjetos;
+            return await context.Puntuaciones.ToListAsync();
         }
 
-        public void registrar(I entity)
+        public async Task registrar(Puntuaciones entity)
         {
-            while (repetido(entity.id))
-            {
-                entity.id++;
-            }
             context.Puntuaciones.Add(entity);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
 
         }
 
-        public bool repetido(I entity)
-        {
-            return listaObjetos.Any(e => e.Equals(entity));
-        }
-        public bool repetido(int entity)
-        {
-            return listaObjetos.Any(e => e.id.Equals(entity));
-        }
     }
 }

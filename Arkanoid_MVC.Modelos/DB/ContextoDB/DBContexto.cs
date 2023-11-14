@@ -1,4 +1,5 @@
 ﻿
+using Arkanoid_MVC.Modelos.Modelos;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Modelos.ContextoDB
 {
-    public class DBContexto<I> : DbContext where I : class
+    public class DBContexto: DbContext 
     {
         private string _context;
-        public DbSet<I> jugadores { get; set; }
-        public DbSet<I> Puntuaciones { get; set; }
-        public DbSet<I> passwords { get; set; }
-        public DbSet<I> datosBancarios { get; set; }
-        public DbSet<I> Usuarios { get; set; }
+        public DbSet<Jugadores> jugadores { get; set; }
+        public DbSet<Puntuaciones> Puntuaciones { get; set; }
+        public DbSet<Passwords> passwords { get; set; }
+        public DbSet<DatosBancarios> datosBancarios { get; set; }
+        public DbSet<Usuarios> Usuarios { get; set; }
 
 
         public DBContexto(string context)
@@ -33,7 +34,7 @@ namespace Arkanoid_MVC.Modelos.ContextoDB
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
+            modelBuilder.Entity<DatosBancarios>().HasKey(n => n.Id);
             Assembly assemblyWithConfigurations = GetType().Assembly;
             modelBuilder.ApplyConfigurationsFromAssembly(assemblyWithConfigurations);
         }

@@ -6,61 +6,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Remoting.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Arkanoid_MVC.Modelos.Repositorios
 {
-    public class RepositorioUsuarios<I> : IRepositorio<I> where I : Usuarios
+    public class RepositorioUsuarios: IRepositorio<Usuarios>
     {
-        private readonly DBContexto<I> context;
-        public List<I> listaObjetos { get; }
 
-        public RepositorioUsuarios(string conexion)
+        private readonly DBContexto context;
+
+        public RepositorioUsuarios(DBContexto contexto)
         {
-            context = new DBContexto<I>(conexion);
-            listaObjetos = context.Usuarios.ToList();
+            context = contexto;
         }
 
-        public I buscar(I entity)
+        public async Task<Usuarios> buscar(Usuarios entity)
         {
-            return listaObjetos.Find(n => n == entity);
+            return await context.Usuarios.FirstOrDefaultAsync(n => n == entity);
         }
 
-        public I buscar(int value)
+        public async Task<Usuarios> buscar(int value)
         {
-            return listaObjetos.Find(n => n.id == value);
+            return await context.Usuarios.FirstOrDefaultAsync(n => n.id == value);
         }
 
-        public void eliminar(I entity)
+        public async Task eliminar(Usuarios entity)
         {
-            I jugador = buscar(entity);
-            context.Usuarios.Remove(jugador);
-            context.SaveChanges();
+            context.Usuarios.Remove(entity);
+            await context.SaveChangesAsync();
 
         }
 
-        public List<I> leer()
+        public async Task<List<Usuarios>> leer()
         {
-            return listaObjetos;
+            return await context.Usuarios.ToListAsync();
         }
 
-        public void registrar(I entity)
+        public async Task registrar(Usuarios entity)
         {
-            while (repetido(entity.id))
-            {
-                entity.id++;
-            }
             context.Usuarios.Add(entity);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
 
-        }
-
-        public bool repetido(I entity)
-        {
-            return listaObjetos.Any(e => e.Equals(entity));
-        }
-        public bool repetido(int entity)
-        {
-            return listaObjetos.Any(e => e.id.Equals(entity));
         }
     }
 }

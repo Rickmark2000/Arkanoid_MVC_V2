@@ -89,7 +89,6 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
         public void terminar_partida(DispatcherTimer timer, int score, Usuarios usuarioSesion)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
-            IRepositorio<Usuarios> usuarios_repositorio = new RepositorioUsuarios<Usuarios>(connectionString);
             timer.Stop();
             MessageBox.Show("Fin de partida. Puntuacion: " + score);
             string nombre_Jugador;

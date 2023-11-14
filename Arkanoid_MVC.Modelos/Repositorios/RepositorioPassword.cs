@@ -6,61 +6,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Arkanoid_MVC.Modelos.Repositorios
 {
-    public class RepositorioPassword<I> : IRepositorio<I> where I : Passwords
+    public class RepositorioPassword : IRepositorio<Passwords>
     {
-        private readonly DBContexto<I> context;
-        public List<I> listaObjetos { get; }
+        private readonly DBContexto context;
 
-        public RepositorioPassword(string conexion)
+        public RepositorioPassword(DBContexto contexto)
         {
-            context = new DBContexto<I>(conexion);
-            listaObjetos = context.passwords.ToList();
+            context = contexto;
         }
 
-        public I buscar(I entity)
+        public async Task<Passwords> buscar(Passwords entity)
         {
-            return listaObjetos.Find(n => n == entity);
+            return await context.passwords.FirstOrDefaultAsync(n => n == entity);
         }
 
-        public I buscar(int value)
+        public async Task<Passwords> buscar(int value)
         {
-            return listaObjetos.Find(n => n.id == value);
+            return await context.passwords.FirstOrDefaultAsync(n => n.id == value);
         }
 
-        public void eliminar(I entity)
+        public async Task eliminar(Passwords entity)
         {
-            I jugador = buscar(entity);
-            context.passwords.Remove(jugador);
-            context.SaveChanges();
+            context.passwords.Remove(entity);
+            await context.SaveChangesAsync();
 
         }
 
-        public List<I> leer()
+        public async Task<List<Passwords>> leer()
         {
-            return listaObjetos;
+            return await context.passwords.ToListAsync();
         }
 
-        public void registrar(I entity)
+        public async Task registrar(Passwords entity)
         {
-            while (repetido(entity.id))
-            {
-                entity.id++;
-            }
             context.passwords.Add(entity);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
 
-        }
-
-        public bool repetido(I entity)
-        {
-            return listaObjetos.Any(e => e.Equals(entity));
-        }
-        public bool repetido(int entity)
-        {
-            return listaObjetos.Any(e => e.id.Equals(entity));
         }
     }
 }
