@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Controladores.Conexion
 {
-    public class ConexionRepositorio
+    public class AccionesRepositorios
     {
         private Conexiones Conexiones;
         private string conexion;
-        public ConexionRepositorio(Conexiones conexiones)
+        public AccionesRepositorios(Conexiones conexiones)
         {
          this.Conexiones = conexiones;
          conexion = Conexiones.conexion;

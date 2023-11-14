@@ -55,7 +55,7 @@
     <Compile Include="Colisiones Juego\ColisionBloque.cs" />
     <Compile Include="Colisiones Juego\ColisionInterseccion.cs" />
     <Compile Include="Conexion\Consulta.cs" />
-    <Compile Include="Conexion\ConexionRepositorio.cs" />
+    <Compile Include="Conexion\AccionesRepositorios.cs" />
     <Compile Include="Controles\ControlesJugador.cs" />
     <Compile Include="Diseño Figuras\Diseno.cs" />
     <Compile Include="Diseño Figuras\DisenoElipse.cs" />

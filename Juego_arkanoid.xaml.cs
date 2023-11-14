@@ -29,7 +29,7 @@ namespace Arkanoid_MVC
         private Usuarios usuarioSesion;
         private Partida partida;
         private ControlesJugador controles;
-        private ConexionRepositorio conexionRepositorio;
+        private AccionesRepositorios conexionRepositorio;
         private Conexiones conexiones;
 
         public Juego_arkanoid(Usuarios usuarioSesion,int num_bolas,float velocidad_jugador,float velocidad_bola, Conexiones conexion)
