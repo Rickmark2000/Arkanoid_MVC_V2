@@ -8,9 +8,11 @@ namespace Arkanoid_MVC.Controladores.Colisiones
     {
         public void Colision_interseccionY(Ellipse bola, Rectangle bloque,ref double posY)
         {
-            bool arriba = (Canvas.GetTop(bola) + bola.Height) >= (Canvas.GetTop(bloque));
-            bool abajo = (Canvas.GetTop(bola) >= (Canvas.GetTop(bloque) +bloque.Height));
+            bool arriba = (Canvas.GetTop(bola) + bola.Height) > (Canvas.GetTop(bloque));
+            bool abajo = (Canvas.GetTop(bola) > (Canvas.GetTop(bloque) +bloque.Height));
+            posY *= -1;
 
+            /*
 
             if (arriba)
             {
@@ -25,7 +27,7 @@ namespace Arkanoid_MVC.Controladores.Colisiones
                 posY *=-1;
             }
             
-
+            */
           
         }
 
@@ -33,8 +35,8 @@ namespace Arkanoid_MVC.Controladores.Colisiones
         {
             bool MitadDerecha = (Canvas.GetLeft(bola) + bola.Width) > (Canvas.GetLeft(bloque) + (bloque.Width / 2));
             bool MitadIzquierda = (Canvas.GetLeft(bola) + bola.Width) < (Canvas.GetLeft(bloque) + (bloque.Width / 2));
-            bool izquierda = Canvas.GetLeft(bola) + bola.Width <= (Canvas.GetLeft(bloque));
-            bool derecha = Canvas.GetLeft(bola) >= (Canvas.GetLeft(bloque) + bloque.Width);
+            bool izquierda = Canvas.GetLeft(bola) + bola.Width < (Canvas.GetLeft(bloque));
+            bool derecha = Canvas.GetLeft(bola) > (Canvas.GetLeft(bloque) + bloque.Width);
 
             if (MitadDerecha||derecha)
             {

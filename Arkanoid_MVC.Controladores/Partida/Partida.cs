@@ -27,13 +27,15 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
         private Rectangle plataforma_jugador;
         private Ellipse bola;
         private IManagement<Rectangle> bloques;
-        private double BolaInicialX, BolaInicialY, PlataformaInicialX,actualBolaX = 2, actualBolaY = 2;
+        private double BolaInicialX, BolaInicialY, PlataformaInicialX,actualBolaX, actualBolaY;
         private int num_bolas;
         private bool isGameOver;
 
-        public Partida(int num_bolas)
+        public Partida(int num_bolas, float actualizar_pos_bola)
         {
             this.num_bolas = num_bolas;
+            this.actualBolaX = actualizar_pos_bola;
+            this.actualBolaY = actualizar_pos_bola;
         }
 
 
@@ -42,7 +44,10 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
             bola = crear.crear_bola(Width, Height, CanvasJuego);
             plataforma_jugador = crear.crear_plataforma(Width, Height, CanvasJuego);
             bloques = crear.crear_bloques(num_bolas, CanvasJuego, Width);
+        }
 
+        public void Guardar_posiciones_iniciales()
+        {
             BolaInicialY = Canvas.GetTop(bola);
             BolaInicialX = Canvas.GetLeft(bola);
 
@@ -51,10 +56,10 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
 
         public void actualizar_colisiones(ref Canvas CanvasJuego,ref int puntuacion_actual)
         {
-            ColisionAplicar colision = new ColisionAplicar();
+            ColisionesShape colision = new ColisionesShape();
             colision.colisiona(bola, ref actualBolaX, ref actualBolaY, plataforma_jugador);
-            colision.colisiona(bola, ref actualBolaX, ref actualBolaY, CanvasJuego, ref isGameOver);
-            colision.colisiona(bola, ref actualBolaX, ref actualBolaY, ref puntuacion_actual, CanvasJuego, bloques);
+            colision.colisiona(bola, ref actualBolaX, ref actualBolaY, ref CanvasJuego, ref isGameOver);
+            colision.colisiona(bola, ref actualBolaX, ref actualBolaY, ref puntuacion_actual, ref CanvasJuego, bloques);
         }
 
         public void actualizar_posBola()
@@ -93,7 +98,7 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
                 nombre_Jugador = Interaction.InputBox("El nombre tiene que tener un tamaño de 3", "Introducir nick", "Aqui el nombre");
 
             } while (nombre_Jugador.Equals("") || (nombre_Jugador.Length < 3 && nombre_Jugador.Length > 3));
-            MessageBox.Show($"Nick {nombre_Jugador} introducido");
+            MessageBox.Show($"Nick {nombre_Jugador} valido");
 
         }
     }

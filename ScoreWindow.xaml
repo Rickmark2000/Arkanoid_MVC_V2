@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ScoreWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="datos" AutoGenerateColumns="False" ItemsSource="{Binding lista_datos}" SelectionChanged="DataGrid_SelectionChanged">
+        <DataGrid x:Name="datos" AutoGenerateColumns="False" ItemsSource="{Binding lista_datos}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Usuario" Binding="{Binding Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Jugador" Binding="{Binding nombre}"></DataGridTextColumn>

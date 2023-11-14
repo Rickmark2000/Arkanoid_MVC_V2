@@ -74,15 +74,6 @@ namespace Arkanoid_MVC.Controladores.DB_Controller
 
 
         }
-
-        public void eliminar_tabla<I>(IRepositorio<I> elements) where I:class
-        {
-            foreach(I element in elements.leer())
-            {
-                elements.eliminar(element);
-            }
-        }
-
   
     }
 }

@@ -7,13 +7,13 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Controladores.Colisiones
 {
-    public class ColisionAplicar
+    public class ColisionesShape
     {
         private IObservarColision<Ellipse, Rectangle> observar = new ObservarColision();
         private ColisionInterseccion interseccion = new ColisionInterseccion();
 
 
-        public void colisiona(Ellipse bola,ref double posX,ref double posY,Canvas element,ref bool gameOver)
+        public void colisiona(Ellipse bola,ref double posX,ref double posY,ref Canvas element,ref bool gameOver)
         {
             IObservarColision<Ellipse, Rectangle> observar = new ObservarColision();
             ETipoColision tipo = observar.estado(bola,element);
@@ -47,7 +47,7 @@ namespace Arkanoid_MVC.Controladores.Colisiones
             }
         }
 
-        public void colisiona(Ellipse bola, ref double posX, ref double posY,ref int score,Canvas element,IManagement<Rectangle> bloques)
+        public void colisiona(Ellipse bola, ref double posX, ref double posY,ref int score,ref Canvas element,IManagement<Rectangle> bloques)
         {
             ColisionBloque colisionBloque = new ColisionBloque();
             Rectangle bloque = colisionBloque.Colision_Bloque(bloques,element,bola);

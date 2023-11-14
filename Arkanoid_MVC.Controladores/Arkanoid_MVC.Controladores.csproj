@@ -51,9 +51,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Colisiones\ColisionAplicar.cs" />
-    <Compile Include="Colisiones\ColisionBloque.cs" />
-    <Compile Include="Colisiones\ColisionInterseccion.cs" />
+    <Compile Include="Colisiones Juego\ColisionesShape.cs" />
+    <Compile Include="Colisiones Juego\ColisionBloque.cs" />
+    <Compile Include="Colisiones Juego\ColisionInterseccion.cs" />
+    <Compile Include="Conexion\Conexiones.cs" />
     <Compile Include="Controles\ControlesJugador.cs" />
     <Compile Include="Diseño Figuras\Diseno.cs" />
     <Compile Include="Diseño Figuras\DisenoElipse.cs" />
@@ -93,5 +94,6 @@
       <Name>Arkanoid_MVC.Modelos</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
