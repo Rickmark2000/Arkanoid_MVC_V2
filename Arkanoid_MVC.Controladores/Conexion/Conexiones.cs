@@ -14,8 +14,9 @@ namespace Arkanoid_MVC.Controladores.Conexion
     public class Conexiones
     {
         protected string conexion;
-        protected string raizProyecto;
+        private string raizProyecto;
         private DBConsultas consultas;
+
         public Conexiones(string conexion,string raizProyecto) 
         {
             this.conexion = conexion;
@@ -23,8 +24,13 @@ namespace Arkanoid_MVC.Controladores.Conexion
             consultas = new DBConsultas(conexion, raizProyecto);
         }
 
+        public Conexiones(string conexion)
+        {
+            this.conexion=conexion;
+        }
 
-        public void vaciar_db()
+
+        public void vaciar_DB()
         {
             IRepositorio<Jugadores> jugadores = new RepositorioJugador<Jugadores>(conexion);
             IRepositorio<Puntuaciones> puntuaciones = new RepositorioPuntuacion<Puntuaciones>(conexion);
@@ -49,6 +55,11 @@ namespace Arkanoid_MVC.Controladores.Conexion
         {
             
             consultas.mostrar_select(consulta, datos);
+        }
+
+        public List<Object> recuperar_select<I>(string consulta) where I : class
+        {
+            return consultas.recuperar_consulta<I>(consulta);
         }
     }
 }

@@ -13,9 +13,6 @@ namespace Arkanoid_MVC
 
     public partial class ScoreWindow : Window
     {
-        
-
-
         public ScoreWindow(Usuarios usuario, Conexiones conexion)
         {
             InitializeComponent();
@@ -29,7 +26,6 @@ namespace Arkanoid_MVC
             */
 
             conexion.mostrar_select(consulta, datos);
-
         }
     }
 }
