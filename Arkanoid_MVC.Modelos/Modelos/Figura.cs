@@ -14,9 +14,9 @@ namespace Arkanoid_MVC.Modelos.Modelos
         public double tamano { get; set; }
         public double posicionX { get; set; }
         public double posicionY { get; set; }
-        public TipoFigura tipoFigura { get; set; }
+        public ETipoFigura tipoFigura { get; set; }
 
-        public Figura(TipoFigura tipo)
+        public Figura(ETipoFigura tipo)
         {
             this.tipoFigura = tipo;
         }

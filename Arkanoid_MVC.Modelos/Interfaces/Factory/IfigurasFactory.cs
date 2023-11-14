@@ -7,7 +7,7 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Modelos.Interfaces
 {
-    public interface Ifiguras_Factory<Objeto> where Objeto : Shape
+    public interface IfigurasFactory<Objeto> where Objeto : Shape
     {
         Objeto crear();
 

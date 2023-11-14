@@ -21,18 +21,18 @@ namespace Arkanoid_MVC
 
 
         string proyectoRaiz = System.IO.Path.GetFullPath(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\"));
-            DB_Consultas db_controller = new DB_Consultas(connectionString,proyectoRaiz);
+            DBConsultas db_controller = new DBConsultas(connectionString,proyectoRaiz);
             
             string consulta = "select u.Id,u.nombre,j.nick,u.email,p.puntuacion,j.vidas " +
               "from jugadores j INNER JOIN usuarios u on j.idUsuario = u.Id " +
               "inner join puntuaciones p on p.idJugador = j.id";
 
 
-            db_controller.mostrar_consulta(consulta,datos);
+            db_controller.mostrar_select(consulta,datos);
 
         }
 
-        public void vaciar_db(DB_Consultas db_controller)
+        public void vaciar_db(DBConsultas db_controller)
         {
             //db_controller.eliminar_tabla<Puntuaciones>(puntuaciones);
             //db_controller.eliminar_tabla<Passwords>(password);

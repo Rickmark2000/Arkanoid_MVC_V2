@@ -12,12 +12,12 @@ namespace Arkanoid_MVC.Modelos.Repositorios
 {
     public class JugadorRepositorio<I> : IRepositorio<I> where I : Jugadores
     {
-        private readonly ContextArkanoid<I> context;
+        private readonly DBContexto<I> context;
         public List<I> listaObjetos { get; }
 
         public JugadorRepositorio(string conexion)
         {
-            context = new ContextArkanoid<I>(conexion);
+            context = new DBContexto<I>(conexion);
             listaObjetos = context.jugadores.ToList();
         }
 

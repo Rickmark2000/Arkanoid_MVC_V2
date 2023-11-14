@@ -22,7 +22,7 @@ namespace Arkanoid_MVC.Controladores.Diseño_Figuras
 
         public override Shape Implementar(ref Canvas element, Color color_fondo, Color color_borde, int grosor_borde)
         {
-            Rectangle plataforma = (Rectangle)Figuras_factory.crear_figura(figura.tipoFigura);
+            Rectangle plataforma = (Rectangle)ShapeFactory.crear_figura(figura.tipoFigura);
             plataforma.Width = figura.ancho;
             plataforma.Height = figura.alto;
             Canvas.SetTop(plataforma, figura.posicionY);

@@ -11,12 +11,12 @@ namespace Arkanoid_MVC.Modelos.Repositorios
 {
     public class PuntuacionRepositorio<I> : IRepositorio<I> where I : Puntuaciones
     {
-        private readonly ContextArkanoid<I> context;
+        private readonly DBContexto<I> context;
         public List<I> listaObjetos { get; }
 
         public PuntuacionRepositorio(string conexion)
         {
-            context = new ContextArkanoid<I>(conexion);
+            context = new DBContexto<I>(conexion);
             listaObjetos = context.Puntuaciones.ToList();
         }
 

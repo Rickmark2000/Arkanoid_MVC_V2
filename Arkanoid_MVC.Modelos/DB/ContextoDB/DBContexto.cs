@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Modelos.ContextoDB
 {
-    public class ContextArkanoid<I> : DbContext where I : class
+    public class DBContexto<I> : DbContext where I : class
     {
         private string _context;
         public DbSet<I> jugadores { get; set; }
@@ -19,7 +19,7 @@ namespace Arkanoid_MVC.Modelos.ContextoDB
         public DbSet<I> Usuarios { get; set; }
 
 
-        public ContextArkanoid(string context)
+        public DBContexto(string context)
         {
             this._context = context;
         }

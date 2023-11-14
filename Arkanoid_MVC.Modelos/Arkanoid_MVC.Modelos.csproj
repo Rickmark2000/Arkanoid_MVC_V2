@@ -177,11 +177,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB\ContextoDB\ContextArkanoid.cs" />
-    <Compile Include="DB\DB_Consultas\DB_Consultas.cs" />
+    <Compile Include="DB\ContextoDB\DBContexto.cs" />
+    <Compile Include="DB\DB_Consultas\DBConsultas.cs" />
     <Compile Include="Enum\EColision.cs" />
-    <Compile Include="Enum\TipoFigura.cs" />
-    <Compile Include="Interfaces\Factory\Ifiguras_Factory.cs" />
+    <Compile Include="Enum\ETipoFigura.cs" />
+    <Compile Include="Interfaces\Factory\IfigurasFactory.cs" />
     <Compile Include="Interfaces\Icomprobar_repetido.cs" />
     <Compile Include="Interfaces\IDisenoFigura.cs" />
     <Compile Include="Interfaces\IObservador_colision.cs" />

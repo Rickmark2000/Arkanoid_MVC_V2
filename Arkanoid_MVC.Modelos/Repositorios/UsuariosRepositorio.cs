@@ -11,12 +11,12 @@ namespace Arkanoid_MVC.Modelos.Repositorios
 {
     public class UsuariosRepositorio<I> : IRepositorio<I> where I : Usuarios
     {
-        private readonly ContextArkanoid<I> context;
+        private readonly DBContexto<I> context;
         public List<I> listaObjetos { get; }
 
         public UsuariosRepositorio(string conexion)
         {
-            context = new ContextArkanoid<I>(conexion);
+            context = new DBContexto<I>(conexion);
             listaObjetos = context.Usuarios.ToList();
         }
 

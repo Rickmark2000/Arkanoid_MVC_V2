@@ -11,12 +11,12 @@ namespace Arkanoid_MVC.Modelos.Repositorios
 {
     public class PasswordRepository<I> : IRepositorio<I> where I : Passwords
     {
-        private readonly ContextArkanoid<I> context;
+        private readonly DBContexto<I> context;
         public List<I> listaObjetos { get; }
 
         public PasswordRepository(string conexion)
         {
-            context = new ContextArkanoid<I>(conexion);
+            context = new DBContexto<I>(conexion);
             listaObjetos = context.passwords.ToList();
         }
 

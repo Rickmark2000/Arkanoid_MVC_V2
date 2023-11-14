@@ -5,12 +5,12 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Controladores.Controles
 {
-    public class Controles_jugador
+    public class ControlesJugador
     {
         private bool goLeft, goRight;
         private float velocidad;
 
-        public Controles_jugador(UIElement element,float velocidad)
+        public ControlesJugador(UIElement element,float velocidad)
         {
             element.AddHandler(UIElement.PreviewKeyUpEvent, new KeyEventHandler(PreviewKeyUpHandler));
             element.AddHandler(UIElement.PreviewKeyDownEvent, new KeyEventHandler(PreviewKeyDownHandler));

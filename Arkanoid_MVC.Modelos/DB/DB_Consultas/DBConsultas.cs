@@ -7,17 +7,17 @@ using System;
 
 namespace Arkanoid_MVC.Controladores.DB_Controller
 {
-    public class DB_Consultas
+    public class DBConsultas
     {
         private string contexto;
 
-        public DB_Consultas(string contexto,string directorioBase)
+        public DBConsultas(string contexto,string directorioBase)
         {
             this.contexto = contexto;
             AppDomain.CurrentDomain.SetData("DataDirectory", directorioBase);
         }
 
-        public void mostrar_consulta(string consulta, System.Windows.Controls.DataGrid datos)
+        public void mostrar_select(string consulta, System.Windows.Controls.DataGrid datos)
         {
             using (SqlConnection conexion = new SqlConnection(contexto))
             {

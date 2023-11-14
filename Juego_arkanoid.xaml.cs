@@ -26,13 +26,13 @@ namespace Arkanoid_MVC
         private int score = 0;
         private Usuarios usuarioSesion;
         private Partida partida;
-        private Controles_jugador controles;
+        private ControlesJugador controles;
 
         public Juego_arkanoid(Usuarios usuarioSesion)
         {
             InitializeComponent();
             this.usuarioSesion = usuarioSesion;
-            controles = new Controles_jugador(ventana, 9);
+            controles = new ControlesJugador(ventana, 9);
             partida = new Partida(9);
             partida.prepararJuego(Width, Height, CanvasJuego);
 
@@ -45,10 +45,11 @@ namespace Arkanoid_MVC
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            txtScore.Content = "Puntuación: " + score;
-            partida.actualizar_posJugador(controles, ref CanvasJuego);
             partida.actualizar_posBola();
+            partida.actualizar_posJugador(controles, ref CanvasJuego);
             partida.actualizar_colisiones(ref CanvasJuego, ref score);
+
+            txtScore.Content = "Puntuación: " + score;
 
             if (partida.gameOver())
             {

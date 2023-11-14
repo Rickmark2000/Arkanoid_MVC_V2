@@ -23,7 +23,7 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
 {
     public class Partida
     {
-        private Crear_figuras crear = new Crear_figuras();
+        private CrearFiguras crear = new CrearFiguras();
         private Rectangle plataforma_jugador;
         private Ellipse bola;
         private Ifiguras_management<Rectangle> bloques;
@@ -75,7 +75,7 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
             }
         }
 
-        public void actualizar_posJugador(Controles_jugador controles,ref Canvas CanvasJuego)
+        public void actualizar_posJugador(ControlesJugador controles,ref Canvas CanvasJuego)
         {
             Canvas.SetLeft(plataforma_jugador, PlataformaInicialX);
             controles.mover(plataforma_jugador, ref PlataformaInicialX, CanvasJuego);
