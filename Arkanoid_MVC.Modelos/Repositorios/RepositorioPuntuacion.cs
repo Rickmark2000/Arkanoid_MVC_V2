@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Modelos.Repositorios
 {
-    public class UsuariosRepositorio<I> : IRepositorio<I> where I : Usuarios
+    public class RepositorioPuntuacion<I> : IRepositorio<I> where I : Puntuaciones
     {
         private readonly DBContexto<I> context;
         public List<I> listaObjetos { get; }
 
-        public UsuariosRepositorio(string conexion)
+        public RepositorioPuntuacion(string conexion)
         {
             context = new DBContexto<I>(conexion);
-            listaObjetos = context.Usuarios.ToList();
+            listaObjetos = context.Puntuaciones.ToList();
         }
 
         public I buscar(I entity)
@@ -33,7 +33,7 @@ namespace Arkanoid_MVC.Modelos.Repositorios
         public void eliminar(I entity)
         {
             I jugador = buscar(entity);
-            context.Usuarios.Remove(jugador);
+            context.Puntuaciones.Remove(jugador);
             context.SaveChanges();
 
         }
@@ -49,7 +49,7 @@ namespace Arkanoid_MVC.Modelos.Repositorios
             {
                 entity.id++;
             }
-            context.Usuarios.Add(entity);
+            context.Puntuaciones.Add(entity);
             context.SaveChanges();
 
         }

@@ -179,21 +179,21 @@
   <ItemGroup>
     <Compile Include="DB\ContextoDB\DBContexto.cs" />
     <Compile Include="DB\DB_Consultas\DBConsultas.cs" />
-    <Compile Include="Enum\EColision.cs" />
-    <Compile Include="Enum\ETipoFigura.cs" />
+    <Compile Include="Enum\ETipoColision.cs" />
+    <Compile Include="Enum\ETipoShape.cs" />
     <Compile Include="Interfaces\Factory\IfigurasFactory.cs" />
-    <Compile Include="Interfaces\Icomprobar_repetido.cs" />
+    <Compile Include="Interfaces\IComprobarRepetido.cs" />
     <Compile Include="Interfaces\IDisenoFigura.cs" />
-    <Compile Include="Interfaces\IObservador_colision.cs" />
+    <Compile Include="Interfaces\IObservarColision.cs" />
     <Compile Include="Interfaces\IPartida.cs" />
-    <Compile Include="Interfaces\Listas\IDictionaryFigura.cs" />
-    <Compile Include="Interfaces\Listas\Ilista_figura.cs" />
-    <Compile Include="Interfaces\Management\Ifiguras_management.cs" />
+    <Compile Include="Interfaces\Listas\IDiccionarioClase.cs" />
+    <Compile Include="Interfaces\Listas\IListaClase.cs" />
+    <Compile Include="Interfaces\Management\IManagement.cs" />
     <Compile Include="Interfaces\Repositorio\IRepositorio.cs" />
     <Compile Include="Modelos\Figura.cs" />
-    <Compile Include="Modelos\Figura_SinVelocidad.cs" />
-    <Compile Include="Modelos\Figura_Velocidad.cs" />
-    <Compile Include="Modelos\Modelos DB\Datos_bancarios.cs" />
+    <Compile Include="Modelos\FiguraSinVelocidad.cs" />
+    <Compile Include="Modelos\FiguraVelocidad.cs" />
+    <Compile Include="Modelos\Modelos DB\DatosBancarios.cs" />
     <Compile Include="Modelos\Modelos DB\Jugadores.cs" />
     <Compile Include="Modelos\Modelos DB\Passwords.cs" />
     <Compile Include="Modelos\Modelos DB\Puntuaciones.cs" />
@@ -211,10 +211,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Repositorios\JugadorRepositorio.cs" />
-    <Compile Include="Repositorios\PasswordRepository.cs" />
-    <Compile Include="Repositorios\PuntuacionRepositorio.cs" />
-    <Compile Include="Repositorios\UsuariosRepositorio.cs" />
+    <Compile Include="Repositorios\RepositorioJugador.cs" />
+    <Compile Include="Repositorios\RepositorioPassword.cs" />
+    <Compile Include="Repositorios\RepositorioPuntuacion.cs" />
+    <Compile Include="Repositorios\RepositorioUsuarios.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

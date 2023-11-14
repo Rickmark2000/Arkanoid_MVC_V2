@@ -1,7 +1,7 @@
 ﻿
 namespace Arkanoid_MVC.Modelos.Enum
 {
-    public enum ETipoFigura
+    public enum ETipoShape
     {
         Rectangulo,
         Elipse

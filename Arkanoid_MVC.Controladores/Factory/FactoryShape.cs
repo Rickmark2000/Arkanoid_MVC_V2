@@ -9,18 +9,18 @@ using Arkanoid_MVC.Modelos.Interfaces;
 
 namespace Arkanoid_MVC.Controladores.Factory
 {
-    public abstract class ShapeFactory : IfigurasFactory<Shape>
+    public abstract class FactoryShape : IfigurasFactory<Shape>
     {
-        public static Shape crear_figura(ETipoFigura tipo)
+        public static Shape crear_figura(ETipoShape tipo)
         {
             Shape figura = null;
             switch (tipo)
             {
-                case ETipoFigura.Rectangulo:
-                    figura = new RectangleFactory().crear();
+                case ETipoShape.Rectangulo:
+                    figura = new FactoryRectangle().crear();
                     break;
-                case ETipoFigura.Elipse:
-                    figura = new ElipseFactory().crear();
+                case ETipoShape.Elipse:
+                    figura = new FactoryElipse().crear();
                     break;
 
             }

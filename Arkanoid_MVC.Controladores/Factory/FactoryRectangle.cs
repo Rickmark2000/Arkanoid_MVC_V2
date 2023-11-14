@@ -2,7 +2,7 @@
 
 namespace Arkanoid_MVC.Controladores.Factory
 {
-    public class RectangleFactory : ShapeFactory
+    public class FactoryRectangle : FactoryShape
     {
 
         public override Shape crear()

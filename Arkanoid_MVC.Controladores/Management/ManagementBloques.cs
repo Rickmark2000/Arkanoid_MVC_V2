@@ -8,12 +8,12 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Controladores.Management
 {
-    public class BloquesManagement : Ifiguras_management<Rectangle>
+    public class ManagementBloques : IManagement<Rectangle>
     {
 
         public List< Rectangle> listaObjetos { get; }
 
-        public BloquesManagement()
+        public ManagementBloques()
         {
             listaObjetos = new List<Rectangle>();
         }

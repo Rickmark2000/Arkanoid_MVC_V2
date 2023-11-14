@@ -9,45 +9,45 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Controladores.Observer
 {
-    public class ObservarColision : IObservador_colision<Ellipse,Rectangle>
+    public class ObservarColision : IObservarColision<Ellipse,Rectangle>
     {
 
 
-        public EColision estado(Ellipse figura, Canvas element)
+        public ETipoColision estado(Ellipse figura, Canvas element)
         {
-            EColision estado = EColision.nada;
+            ETipoColision estado = ETipoColision.nada;
 
             if (!detectar_fuera_limite(figura, element))
             {
                 if (detectar_colision_muro(figura, element))
                 {
-                    estado = EColision.ColisionHorizontal;
+                    estado = ETipoColision.ColisionHorizontal;
                 }
                 else if (detectar_colision_techo(figura))
                 {
-                    estado = EColision.ColisionVertical;
+                    estado = ETipoColision.ColisionVertical;
                 }
             }
             else
             {
-                estado = EColision.fuera;
+                estado = ETipoColision.fuera;
             }
 
 
             return estado;
         }
 
-        public EColision estado(Ellipse figura, Rectangle plataforma)
+        public ETipoColision estado(Ellipse figura, Rectangle plataforma)
         {
-            EColision tipo = EColision.nada;
+            ETipoColision tipo = ETipoColision.nada;
 
             if(detectar_colision_plataforma(figura, plataforma))
             {
-                tipo = EColision.EnPlataforma;
+                tipo = ETipoColision.EnPlataforma;
             }
             else
             {
-                tipo = EColision.nada;
+                tipo = ETipoColision.nada;
             }
             return tipo;
             

@@ -7,7 +7,7 @@ namespace Arkanoid_MVC.Controladores.Colisiones
 {
     public class ColisionBloque
     {
-        public Rectangle Colision_Bloque(Ifiguras_management<Rectangle> bloques, Canvas element, Ellipse bola)
+        public Rectangle Colision_Bloque(IManagement<Rectangle> bloques, Canvas element, Ellipse bola)
         {
             Rectangle bloque = detectar_colision_bloque(bola, bloques,element);
             if (bloque != null)
@@ -24,7 +24,7 @@ namespace Arkanoid_MVC.Controladores.Colisiones
         }
 
 
-        private Rectangle detectar_colision_bloque(Ellipse ball, Ifiguras_management<Rectangle> bloques_management, Canvas element)
+        private Rectangle detectar_colision_bloque(Ellipse ball, IManagement<Rectangle> bloques_management, Canvas element)
         {
             Rect rect_bola = new Rect(Canvas.GetLeft(ball), Canvas.GetTop(ball), ball.Width, ball.Height);
             Rect rect_plataforma;

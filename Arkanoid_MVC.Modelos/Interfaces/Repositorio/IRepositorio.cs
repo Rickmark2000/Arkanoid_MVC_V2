@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Modelos.Interfaces
 {
-    public interface IRepositorio<Entity>: Ilista_figura<Entity>,Icomprobar_repetido<int> where Entity : class
+    public interface IRepositorio<Entity>: IListaClase<Entity>,IComprobarRepetido<int> where Entity : class
     {
         void registrar(Entity entity);
 

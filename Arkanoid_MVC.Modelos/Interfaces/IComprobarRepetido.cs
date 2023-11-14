@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Modelos.Interfaces
 {
-    public interface IDictionaryFigura<T,E>
+    public interface IComprobarRepetido<Entity>
     {
-       Dictionary<T,E> lista_figura { get; }
+        bool repetido(Entity entity);
     }
 }

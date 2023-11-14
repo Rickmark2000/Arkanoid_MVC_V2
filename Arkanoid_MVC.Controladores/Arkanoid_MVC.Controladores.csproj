@@ -58,11 +58,11 @@
     <Compile Include="Diseño Figuras\Diseno.cs" />
     <Compile Include="Diseño Figuras\DisenoElipse.cs" />
     <Compile Include="Diseño Figuras\DisenoRectangulo.cs" />
-    <Compile Include="Factory\ElipseFactory.cs" />
-    <Compile Include="Factory\ShapeFactory.cs" />
-    <Compile Include="Factory\RectangleFactory.cs" />
+    <Compile Include="Factory\FactoryElipse.cs" />
+    <Compile Include="Factory\FactoryShape.cs" />
+    <Compile Include="Factory\FactoryRectangle.cs" />
     <Compile Include="Crear_figuras\CrearFiguras.cs" />
-    <Compile Include="Management\BloquesManagement.cs" />
+    <Compile Include="Management\ManagementBloques.cs" />
     <Compile Include="Observer\ObservarColision.cs" />
     <Compile Include="Partida\Partida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

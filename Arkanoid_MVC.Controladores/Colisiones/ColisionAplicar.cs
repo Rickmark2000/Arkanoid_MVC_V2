@@ -9,24 +9,24 @@ namespace Arkanoid_MVC.Controladores.Colisiones
 {
     public class ColisionAplicar
     {
-        private IObservador_colision<Ellipse, Rectangle> observar = new ObservarColision();
+        private IObservarColision<Ellipse, Rectangle> observar = new ObservarColision();
         private ColisionInterseccion interseccion = new ColisionInterseccion();
 
 
         public void colisiona(Ellipse bola,ref double posX,ref double posY,Canvas element,ref bool gameOver)
         {
-            IObservador_colision<Ellipse, Rectangle> observar = new ObservarColision();
-            EColision tipo = observar.estado(bola,element);
+            IObservarColision<Ellipse, Rectangle> observar = new ObservarColision();
+            ETipoColision tipo = observar.estado(bola,element);
 
             switch (tipo)
             {
-                case EColision.ColisionHorizontal:
+                case ETipoColision.ColisionHorizontal:
                     posX *= -1;
                     break;
-                case EColision.ColisionVertical:
+                case ETipoColision.ColisionVertical:
                     posY *= -1;
                     break;
-                case EColision.fuera:
+                case ETipoColision.fuera:
                     gameOver = true;
                     break;
             }
@@ -35,11 +35,11 @@ namespace Arkanoid_MVC.Controladores.Colisiones
         public void colisiona(Ellipse bola, ref double posX, ref double posY,Rectangle plataforma)
         {
     
-            EColision tipo = observar.estado(bola, plataforma);
+            ETipoColision tipo = observar.estado(bola, plataforma);
 
             switch (tipo)
             {
-                case EColision.EnPlataforma:
+                case ETipoColision.EnPlataforma:
                     interseccion.Colision_interseccionY(bola, plataforma, ref posY);
                  
                     break;
@@ -47,7 +47,7 @@ namespace Arkanoid_MVC.Controladores.Colisiones
             }
         }
 
-        public void colisiona(Ellipse bola, ref double posX, ref double posY,ref int score,Canvas element,Ifiguras_management<Rectangle> bloques)
+        public void colisiona(Ellipse bola, ref double posX, ref double posY,ref int score,Canvas element,IManagement<Rectangle> bloques)
         {
             ColisionBloque colisionBloque = new ColisionBloque();
             Rectangle bloque = colisionBloque.Colision_Bloque(bloques,element,bola);

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Modelos.Modelos
 {
-    public class Figura_Velocidad : Figura
+    public class FiguraVelocidad : Figura
     {
-        public Figura_Velocidad(ETipoFigura tipo) : base(tipo)
+        public FiguraVelocidad(ETipoShape tipo) : base(tipo)
         {
         }
 

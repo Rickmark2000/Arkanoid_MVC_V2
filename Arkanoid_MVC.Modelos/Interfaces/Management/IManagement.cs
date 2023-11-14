@@ -8,7 +8,7 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Modelos.Interfaces
 { 
-    public interface Ifiguras_management<T>:Ilista_figura<T>
+    public interface IManagement<T>:IListaClase<T>
     {
        
         void anadir(T objeto);

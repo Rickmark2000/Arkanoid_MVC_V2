@@ -44,10 +44,10 @@ namespace Arkanoid_MVC
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            IRepositorio<Jugadores> jugadores = new JugadorRepositorio<Jugadores>(connectionString);
-            IRepositorio<Puntuaciones> puntuaciones = new PuntuacionRepositorio<Puntuaciones>(connectionString);
-            IRepositorio<Usuarios> usuarios = new UsuariosRepositorio<Usuarios>(connectionString);
-            IRepositorio<Passwords> password = new PasswordRepository<Passwords>(connectionString);
+            IRepositorio<Jugadores> jugadores = new RepositorioJugador<Jugadores>(connectionString);
+            IRepositorio<Puntuaciones> puntuaciones = new RepositorioPuntuacion<Puntuaciones>(connectionString);
+            IRepositorio<Usuarios> usuarios = new RepositorioUsuarios<Usuarios>(connectionString);
+            IRepositorio<Passwords> password = new RepositorioPassword<Passwords>(connectionString);
     }
     }
 }

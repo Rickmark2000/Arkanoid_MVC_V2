@@ -10,10 +10,10 @@ using Arkanoid_MVC.Modelos.Enum;
 
 namespace Arkanoid_MVC.Modelos.Interfaces
 {
-    public interface IObservador_colision<I,E> where I : Shape
+    public interface IObservarColision<I,E> where I : Shape
     {
-       EColision estado(I figura, Canvas element);
+       ETipoColision estado(I figura, Canvas element);
 
-        EColision estado(I figura, E element);
+        ETipoColision estado(I figura, E element);
     }
 }

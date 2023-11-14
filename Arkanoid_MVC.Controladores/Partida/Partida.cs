@@ -26,7 +26,7 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
         private CrearFiguras crear = new CrearFiguras();
         private Rectangle plataforma_jugador;
         private Ellipse bola;
-        private Ifiguras_management<Rectangle> bloques;
+        private IManagement<Rectangle> bloques;
         private double BolaInicialX, BolaInicialY, PlataformaInicialX,actualBolaX = 2, actualBolaY = 2;
         private int num_bolas;
         private bool isGameOver;
@@ -84,7 +84,7 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
         public void terminar_partida(DispatcherTimer timer, int score, Usuarios usuarioSesion)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
-            IRepositorio<Usuarios> usuarios_repositorio = new UsuariosRepositorio<Usuarios>(connectionString);
+            IRepositorio<Usuarios> usuarios_repositorio = new RepositorioUsuarios<Usuarios>(connectionString);
             timer.Stop();
             MessageBox.Show("Fin de partida. Puntuacion: " + score);
             string nombre_Jugador;

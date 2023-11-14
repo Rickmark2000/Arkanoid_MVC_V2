@@ -1,23 +1,24 @@
-﻿using Arkanoid_MVC.Modelos.Interfaces;
-using Arkanoid_MVC.Modelos.ContextoDB;
+﻿using Arkanoid_MVC.Modelos.ContextoDB;
+using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Modelos.Modelos;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Metadata;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Modelos.Repositorios
 {
-    public class PuntuacionRepositorio<I> : IRepositorio<I> where I : Puntuaciones
+    public class RepositorioJugador<I> : IRepositorio<I> where I : Jugadores
     {
         private readonly DBContexto<I> context;
         public List<I> listaObjetos { get; }
 
-        public PuntuacionRepositorio(string conexion)
+        public RepositorioJugador(string conexion)
         {
             context = new DBContexto<I>(conexion);
-            listaObjetos = context.Puntuaciones.ToList();
+            listaObjetos = context.jugadores.ToList();
         }
 
         public I buscar(I entity)
@@ -33,7 +34,7 @@ namespace Arkanoid_MVC.Modelos.Repositorios
         public void eliminar(I entity)
         {
             I jugador = buscar(entity);
-            context.Puntuaciones.Remove(jugador);
+            context.jugadores.Remove(jugador);
             context.SaveChanges();
 
         }
@@ -49,7 +50,7 @@ namespace Arkanoid_MVC.Modelos.Repositorios
             {
                 entity.id++;
             }
-            context.Puntuaciones.Add(entity);
+            context.jugadores.Add(entity);
             context.SaveChanges();
 
         }
@@ -58,6 +59,7 @@ namespace Arkanoid_MVC.Modelos.Repositorios
         {
             return listaObjetos.Any(e => e.Equals(entity));
         }
+
         public bool repetido(int entity)
         {
             return listaObjetos.Any(e => e.id.Equals(entity));

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Modelos.Interfaces
 {
-    public interface Ilista_figura<T>
+    public interface IListaClase<T>
     {
          List<T> listaObjetos { get;}
     }

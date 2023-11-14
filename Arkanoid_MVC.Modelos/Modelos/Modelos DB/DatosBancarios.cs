@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Modelos.Modelos { 
-    public class Datos_bancarios
+    public class DatosBancarios
     {
     
         public int Id { get; set; }
@@ -16,7 +16,7 @@ namespace Arkanoid_MVC.Modelos.Modelos {
 
         public string entidad { get; set; }
 
-        public Datos_bancarios(int id,int id_Usuario, DateTime f_caducidad, string numeroTarjeta, string entidad)
+        public DatosBancarios(int id,int id_Usuario, DateTime f_caducidad, string numeroTarjeta, string entidad)
         {
             this.Id = id;
             this.id_Usuario = id_Usuario;
