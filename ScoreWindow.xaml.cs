@@ -28,7 +28,7 @@ namespace Arkanoid_MVC
               "inner join puntuaciones p on p.idJugador = j.id";
 
 
-            db_controller.realizar_consulta(consulta,datos);
+            db_controller.mostrar_consulta(consulta,datos);
 
         }
 

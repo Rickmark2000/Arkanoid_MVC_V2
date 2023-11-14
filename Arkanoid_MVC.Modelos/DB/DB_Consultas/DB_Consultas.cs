@@ -17,7 +17,7 @@ namespace Arkanoid_MVC.Controladores.DB_Controller
             AppDomain.CurrentDomain.SetData("DataDirectory", directorioBase);
         }
 
-        public void realizar_consulta(string consulta, System.Windows.Controls.DataGrid datos)
+        public void mostrar_consulta(string consulta, System.Windows.Controls.DataGrid datos)
         {
             using (SqlConnection conexion = new SqlConnection(contexto))
             {
