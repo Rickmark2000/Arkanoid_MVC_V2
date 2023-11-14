@@ -3,8 +3,12 @@ using Arkanoid_MVC.Controladores.Controles;
 using Arkanoid_MVC.Controladores.Juego;
 using Arkanoid_MVC.Modelos.Enum;
 using Arkanoid_MVC.Modelos.Interfaces;
+using Arkanoid_MVC.Modelos.Modelos;
+using Arkanoid_MVC.Modelos.Repositorios;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +17,11 @@ using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Arkanoid_MVC.Controladores.Partida_Manage
 {
-    public class Partida_Manage
+    public class Partida
     {
         private Crear_figuras crear = new Crear_figuras();
         private Rectangle plataforma_jugador;
@@ -26,7 +31,7 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
         private int num_bolas;
         private bool isGameOver;
 
-        public Partida_Manage(int num_bolas)
+        public Partida(int num_bolas)
         {
             this.num_bolas = num_bolas;
         }
@@ -74,6 +79,22 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
         {
             Canvas.SetLeft(plataforma_jugador, PlataformaInicialX);
             controles.mover(plataforma_jugador, ref PlataformaInicialX, CanvasJuego);
+        }
+
+        public void terminar_partida(DispatcherTimer timer, int score, Usuarios usuarioSesion)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
+            IRepositorio<Usuarios> usuarios_repositorio = new UsuariosRepositorio<Usuarios>(connectionString);
+            timer.Stop();
+            MessageBox.Show("Fin de partida. Puntuacion: " + score);
+            string nombre_Jugador;
+            do
+            {
+                nombre_Jugador = Interaction.InputBox("El nombre tiene que tener un tamaño de 3", "Introducir nick", "Aqui el nombre");
+
+            } while (nombre_Jugador.Equals("") || (nombre_Jugador.Length < 3 && nombre_Jugador.Length > 3));
+            MessageBox.Show($"Nick {nombre_Jugador} introducido");
+
         }
     }
 }

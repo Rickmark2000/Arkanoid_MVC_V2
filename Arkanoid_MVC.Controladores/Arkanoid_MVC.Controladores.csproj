@@ -32,7 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -62,7 +64,7 @@
     <Compile Include="Crear_figuras\Crear_figuras.cs" />
     <Compile Include="Management\BloquesManagement.cs" />
     <Compile Include="Observer\ObservarColision.cs" />
-    <Compile Include="Partida_Manage\Partida_Manage.cs" />
+    <Compile Include="Partida\Partida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

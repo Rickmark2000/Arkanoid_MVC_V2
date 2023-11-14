@@ -21,28 +21,23 @@ namespace Arkanoid_MVC
 {
     public partial class Juego_arkanoid : Window
     {
-      
+
         private DispatcherTimer timer;
         private int score = 0;
-
-        private IRepositorio<Usuarios> usuarios_repositorio;
         private Usuarios usuarioSesion;
-
-        private Partida_Manage partida;
-
+        private Partida partida;
         private Controles_jugador controles;
 
         public Juego_arkanoid(Usuarios usuarioSesion)
         {
             InitializeComponent();
             this.usuarioSesion = usuarioSesion;
-            controles = new Controles_jugador(ventana, 6);
-
-            partida = new Partida_Manage(9);
-            partida.prepararJuego(Width,Height,CanvasJuego);
+            controles = new Controles_jugador(ventana, 9);
+            partida = new Partida(9);
+            partida.prepararJuego(Width, Height, CanvasJuego);
 
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(6);
+            timer.Interval = TimeSpan.FromMilliseconds(15.2);
             timer.Tick += Timer_Tick;
             timer.Start();
 
@@ -50,35 +45,14 @@ namespace Arkanoid_MVC
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            txtScore.Content = "Puntuación: " + score;
+            partida.actualizar_posJugador(controles, ref CanvasJuego);
+            partida.actualizar_posBola();
+            partida.actualizar_colisiones(ref CanvasJuego, ref score);
 
-            if (!partida.gameOver())
+            if (partida.gameOver())
             {
-                txtScore.Content = "Puntuación: " + score;
-
-                partida.actualizar_posJugador(controles, ref CanvasJuego);
-                partida.actualizar_posBola();
-                partida.actualizar_colisiones(ref CanvasJuego, ref score);
-
-            }
-            else
-            {
-                timer.Stop();
-                MessageBox.Show("Fin de partida. Puntuacion: "+score);
-                string nombre_Jugador;
-                do
-                {
-                    nombre_Jugador = Interaction.InputBox("El nombre tiene que tener un tamaño de 3", "Introducir nick", "Aqui el nombre");
-                    
-                } while (nombre_Jugador.Equals("")|| (nombre_Jugador.Length < 3 && nombre_Jugador.Length >3));
-                MessageBox.Show($"Nick {nombre_Jugador} introducido");
-                string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
-                usuarios_repositorio = new UsuariosRepositorio<Usuarios>(connectionString);
-                /*
-                
-                DB_Controller controller = new DB_Controller(connectionString);
-                
-                List<object> s = controller.recuperar_consulta(consulta);
-                */
+                partida.terminar_partida(timer, score, usuarioSesion);
                 MainWindow menu = new MainWindow();
                 menu.Show();
                 this.Close();
