@@ -24,5 +24,13 @@ namespace Arkanoid_MVC.Modelos.Modelos
             this.usuario = usuario;
         }
 
+        public Usuarios(string nombre, string apellido, string email, string usuario)
+        { 
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.email = email;
+            this.usuario = usuario;
+        }
+
     }
 }

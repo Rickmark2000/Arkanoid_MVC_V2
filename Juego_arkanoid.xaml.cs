@@ -31,13 +31,14 @@ namespace Arkanoid_MVC
         private ControlesJugador controles;
         private Conexiones conexiones;
 
-        public Juego_arkanoid(Usuarios usuarioSesion,int num_bolas,float velocidad_jugador,float velocidad_bola, Conexiones conexion)
+        public Juego_arkanoid(Usuarios usuarioSesion,float velocidad_jugador,float velocidad_bola, int num_bolas, Conexiones conexion)
         {
             InitializeComponent();
+            Random random = new Random();
             this.conexiones = conexion;
             this.usuarioSesion = usuarioSesion;
             controles = new ControlesJugador(ventana, velocidad_jugador);
-            partida = new Partida(num_bolas,velocidad_bola);
+            partida = new Partida(random.Next(num_bolas),velocidad_bola);
             partida.prepararJuego(Width, Height, CanvasJuego);
             partida.Guardar_posiciones_iniciales();
 

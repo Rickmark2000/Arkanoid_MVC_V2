@@ -16,7 +16,7 @@ namespace Arkanoid_MVC
 
     public partial class MainWindow : Window
     {
-        private Usuarios usuario = new Usuarios(1, "Carlos", "Castro", "carl@outlook.com", "Mark");
+        private Usuarios usuario = new Usuarios(5,"A", "Me", "QO@outlook.com", "SIU");
         private string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
         private string proyectoRaiz = System.IO.Path.GetFullPath(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\"));
         private Conexiones conexion;
@@ -24,9 +24,6 @@ namespace Arkanoid_MVC
         public MainWindow()
         {
             InitializeComponent();
-            conexion = new Conexiones(connectionString, proyectoRaiz);
-            IControladores<Usuarios> c = new ControladorUsuarios(conexion);
-
             conexion = new Conexiones(connectionString, proyectoRaiz);
             Menu_Principal menu = new Menu_Principal(usuario,conexion);
             menu.Show();

@@ -34,7 +34,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
 
         public override void buscar(int value)
         {
-            throw new NotImplementedException();
+          repositorio.buscar(value);
         }
 
         public override void eliminar(Usuarios entity)
@@ -44,7 +44,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
 
         public override void registrar(Usuarios entity)
         {
-            throw new NotImplementedException();
+            repositorio.registrar(entity);
         }
 
         public override bool repetido(Usuarios entity)

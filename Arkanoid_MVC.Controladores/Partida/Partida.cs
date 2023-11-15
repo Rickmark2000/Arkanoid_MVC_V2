@@ -1,5 +1,8 @@
 ﻿using Arkanoid_MVC.Controladores.Colisiones;
+using Arkanoid_MVC.Controladores.Conexion;
+using Arkanoid_MVC.Controladores.ControladoresDB;
 using Arkanoid_MVC.Controladores.Controles;
+using Arkanoid_MVC.Controladores.Interfaces;
 using Arkanoid_MVC.Controladores.Juego;
 using Arkanoid_MVC.Modelos.Enum;
 using Arkanoid_MVC.Modelos.Interfaces;
@@ -88,7 +91,9 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
 
         public void terminar_partida(DispatcherTimer timer, int score, Usuarios usuarioSesion)
         {
+            
             string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
+            Conexiones conexion = new Conexiones(connectionString);
             timer.Stop();
             MessageBox.Show("Fin de partida. Puntuacion: " + score);
             string nombre_Jugador;

@@ -35,6 +35,8 @@ namespace Arkanoid_MVC.Modelos.ContextoDB
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<DatosBancarios>().HasKey(n => n.Id);
+            modelBuilder.Entity<Usuarios>().HasKey(n => n.id);
+            modelBuilder.Entity<Usuarios>().Property(n => n.id).ValueGeneratedOnAdd();
             Assembly assemblyWithConfigurations = GetType().Assembly;
             modelBuilder.ApplyConfigurationsFromAssembly(assemblyWithConfigurations);
         }
