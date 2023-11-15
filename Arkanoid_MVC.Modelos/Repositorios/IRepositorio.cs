@@ -18,7 +18,7 @@ namespace Arkanoid_MVC.Modelos.Interfaces
 
         Task<Entity> buscar(int value);
 
-        Task<List<Entity>> leer();
+        List<Entity> leer();
 
     }
 }

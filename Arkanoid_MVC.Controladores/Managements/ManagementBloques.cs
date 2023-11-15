@@ -11,36 +11,37 @@ namespace Arkanoid_MVC.Controladores.Management
     public class ManagementBloques : IManagement<Rectangle>
     {
 
-        public List< Rectangle> listaObjetos { get; }
+        private List<Rectangle> lista;
 
         public ManagementBloques()
         {
-            listaObjetos = new List<Rectangle>();
+            lista = new List<Rectangle>();
         }
 
         public void anadir(Rectangle objeto)
         {
-            listaObjetos.Add(objeto);
+            lista.Add(objeto);
         }
 
         public Rectangle buscar(Rectangle value)
         {
-            if (listaObjetos.Contains(value))
+            if (lista.Contains(value))
             {
-                return listaObjetos.Find(n=> n.Equals(value));
+                return lista.Find(n=> n.Equals(value));
             }
             else { return null; }
         }
 
         public void eliminar(Rectangle value)
         {
-            listaObjetos.Remove(value);
+            lista.Remove(value);
         }
 
         public List<Rectangle> ObtenerBloques()
         {
-            return listaObjetos.ToList();
+            return lista.ToList();
         }
+
         
     }
 }

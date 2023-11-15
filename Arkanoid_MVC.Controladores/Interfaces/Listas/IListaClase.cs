@@ -8,6 +8,6 @@ namespace Arkanoid_MVC.Modelos.Interfaces
 {
     public interface IListaClase<T>
     {
-         List<T> listaObjetos { get;}
+        List<T> listaObjetos();
     }
 }

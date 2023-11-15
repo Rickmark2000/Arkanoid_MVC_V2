@@ -21,8 +21,13 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
             
         }
 
-        public abstract List<I> listaObjetos { get; }
+        public abstract List<I> listaObjetos();
 
+        public abstract void buscar(I entity);
+        public abstract void buscar(int value);
+        public abstract void eliminar(I entity);
+        public abstract void registrar(I entity);
         public abstract bool repetido(I entity);
+        public abstract void vaciar();
     }
 }

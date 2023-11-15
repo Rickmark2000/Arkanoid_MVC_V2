@@ -36,9 +36,9 @@ namespace Arkanoid_MVC.Modelos.Repositorios
 
         }
 
-        public async Task<List<Passwords>> leer()
+        public List<Passwords> leer()
         {
-            return await context.passwords.ToListAsync();
+            return context.passwords.ToList();
         }
 
         public async Task registrar(Passwords entity)

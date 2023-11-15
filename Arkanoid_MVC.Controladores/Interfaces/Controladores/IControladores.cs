@@ -9,7 +9,15 @@ namespace Arkanoid_MVC.Controladores.Interfaces
 {
     public interface IControladores<I> where I : class
     {
+        void vaciar();
 
+        void eliminar(I entity);
+
+        void registrar(I entity);
+
+        void buscar(I entity);
+
+        void buscar(int value);
 
     }
 }

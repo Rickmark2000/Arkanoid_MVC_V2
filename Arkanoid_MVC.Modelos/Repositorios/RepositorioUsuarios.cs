@@ -37,10 +37,9 @@ namespace Arkanoid_MVC.Modelos.Repositorios
             await context.SaveChangesAsync();
 
         }
-
-        public async Task<List<Usuarios>> leer()
+        public List<Usuarios> leer()
         {
-            return await context.Usuarios.ToListAsync();
+            return context.Usuarios.ToList();
         }
 
         public async Task registrar(Usuarios entity)

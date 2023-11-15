@@ -36,9 +36,9 @@ namespace Arkanoid_MVC.Modelos.Repositorios
 
         }
 
-        public async Task<List<Puntuaciones>> leer()
+        public List<Puntuaciones> leer()
         {
-            return await context.Puntuaciones.ToListAsync();
+            return context.Puntuaciones.ToList();
         }
 
         public async Task registrar(Puntuaciones entity)

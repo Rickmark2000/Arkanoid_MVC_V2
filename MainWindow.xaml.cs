@@ -1,5 +1,7 @@
 ﻿
 using Arkanoid_MVC.Controladores.Conexion;
+using Arkanoid_MVC.Controladores.ControladoresDB;
+using Arkanoid_MVC.Controladores.Interfaces;
 using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Modelos.Modelos;
 using Arkanoid_MVC.Modelos.Repositorios;
@@ -22,6 +24,8 @@ namespace Arkanoid_MVC
         public MainWindow()
         {
             InitializeComponent();
+            conexion = new Conexiones(connectionString, proyectoRaiz);
+            IControladores<Usuarios> c = new ControladorUsuarios(conexion);
 
             conexion = new Conexiones(connectionString, proyectoRaiz);
             Menu_Principal menu = new Menu_Principal(usuario,conexion);

@@ -37,9 +37,9 @@ namespace Arkanoid_MVC.Modelos.Repositorios
 
         }
 
-        public async Task<List<Jugadores>> leer()
+        public List<Jugadores> leer()
         {
-            return await context.jugadores.ToListAsync();
+            return context.jugadores.ToList();
         }
 
         public async Task registrar(Jugadores entity)
