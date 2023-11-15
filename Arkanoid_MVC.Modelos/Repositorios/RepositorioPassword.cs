@@ -18,16 +18,7 @@ namespace Arkanoid_MVC.Modelos.Repositorios
         {
             context = contexto;
         }
-
-        public async Task<Passwords> buscar(Passwords entity)
-        {
-            return await context.passwords.FirstOrDefaultAsync(n => n == entity);
-        }
-
-        public async Task<Passwords> buscar(int value)
-        {
-            return await context.passwords.FirstOrDefaultAsync(n => n.id == value);
-        }
+        
 
         public async Task eliminar(Passwords entity)
         {

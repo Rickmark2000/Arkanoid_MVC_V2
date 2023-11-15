@@ -14,14 +14,12 @@ namespace Arkanoid_MVC
     public partial class ScoreWindow : Window
     {
         private Consulta conexionConsultas;
-        private Conexiones conexiones;
-        public ScoreWindow(Usuarios usuario, Conexiones conexion)
+        public ScoreWindow(Conexiones conexion)
         {
             InitializeComponent();
-            this.conexiones = conexion;
             conexionConsultas = new Consulta(conexion);
            
-            string consulta = $"select * from usuarios u WHERE u.Id ={usuario.id}";
+            string consulta = $"select * from usuarios u WHERE u.Id ={conexion.idSesion}";
 
             /*
             string consulta = "select u.Id,u.nombre,j.nick,u.email,p.puntuacion,j.vidas " +

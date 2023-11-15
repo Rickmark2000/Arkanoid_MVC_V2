@@ -89,11 +89,10 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
             controles.mover(plataforma_jugador, ref PlataformaInicialX, CanvasJuego);
         }
 
-        public void terminar_partida(DispatcherTimer timer, int score, Usuarios usuarioSesion)
+        public void terminar_partida(DispatcherTimer timer, int score, Conexiones conexion)
         {
-            
-            string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
-            Conexiones conexion = new Conexiones(connectionString);
+            Controlador<Jugadores> controladorJugadores = new ControladorJugadores(conexion);
+            Controlador<Puntuaciones> controladorPuntuaciones = new ControladorPuntuaciones(conexion);
             timer.Stop();
             MessageBox.Show("Fin de partida. Puntuacion: " + score);
             string nombre_Jugador;
@@ -101,7 +100,16 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
             {
                 nombre_Jugador = Interaction.InputBox("El nombre tiene que tener un tamaño de 3", "Introducir nick", "Aqui el nombre");
 
-            } while (nombre_Jugador.Equals("") || (nombre_Jugador.Length < 3 && nombre_Jugador.Length > 3));
+            } while (nombre_Jugador.Equals("") || !(nombre_Jugador.Length < 3 &&  nombre_Jugador.Length > 3));
+
+            Jugadores jugador = new Jugadores(1,conexion.idSesion,score,nombre_Jugador,3);
+
+            controladorJugadores.registrar(jugador);
+
+            Puntuaciones puntuaciones = new Puntuaciones(1,jugador.id,score,score);
+
+            controladorPuntuaciones.registrar(puntuaciones);
+
             MessageBox.Show($"Nick {nombre_Jugador} valido");
 
         }

@@ -26,19 +26,17 @@ namespace Arkanoid_MVC
 
         private DispatcherTimer timer;
         private int puntuacion_actual = 0;
-        private Usuarios usuarioSesion;
         private Partida partida;
         private ControlesJugador controles;
         private Conexiones conexiones;
 
-        public Juego_arkanoid(Usuarios usuarioSesion,float velocidad_jugador,float velocidad_bola, int num_bolas, Conexiones conexion)
+        public Juego_arkanoid(float velocidad_jugador,float velocidad_bola, int num_bolas, Conexiones conexion)
         {
             InitializeComponent();
             Random random = new Random();
             this.conexiones = conexion;
-            this.usuarioSesion = usuarioSesion;
             controles = new ControlesJugador(ventana, velocidad_jugador);
-            partida = new Partida(random.Next(num_bolas),velocidad_bola);
+            partida = new Partida(random.Next(9,num_bolas),velocidad_bola);
             partida.prepararJuego(Width, Height, CanvasJuego);
             partida.Guardar_posiciones_iniciales();
 
@@ -64,10 +62,10 @@ namespace Arkanoid_MVC
 
             if (partida.gameOver())
             {
-                partida.terminar_partida(timer, puntuacion_actual, usuarioSesion);
-                Menu_Principal menu = new Menu_Principal(usuarioSesion,conexiones);
-                    menu.Show();
-                    this.Close();
+                partida.terminar_partida(timer, puntuacion_actual, conexiones);
+                Menu_Principal menu = new Menu_Principal(conexiones);
+                menu.Show();
+                this.Close();
                 
             }
         }

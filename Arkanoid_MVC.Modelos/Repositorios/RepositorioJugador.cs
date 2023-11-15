@@ -20,16 +20,6 @@ namespace Arkanoid_MVC.Modelos.Repositorios
             context = contexto;
         }
 
-        public async Task<Jugadores> buscar( Jugadores entity)
-        {
-            return await context.jugadores.FirstOrDefaultAsync(n => n == entity);
-        }
-
-        public async Task<Jugadores> buscar(int value)
-        {
-            return await context.jugadores.FirstOrDefaultAsync(n => n.id == value);
-        }
-
         public async Task eliminar(Jugadores entity)
         {
             context.jugadores.Remove(entity);

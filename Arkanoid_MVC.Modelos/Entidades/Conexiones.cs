@@ -15,6 +15,24 @@ namespace Arkanoid_MVC.Controladores.Conexion
     {
         public string conexion { get; set; }
         public string raizProyecto { get; set; }
+
+        public int idSesion { get; private set; }
+
+        public Conexiones(string conexion, string raizProyecto,int idSesion)
+        {
+            this.conexion = conexion;
+            this.raizProyecto = raizProyecto;
+            this.idSesion = idSesion;
+
+        }
+
+        public Conexiones(string conexion,int idSesion)
+        {
+            this.conexion = conexion;
+            this.idSesion = idSesion;
+
+        }
+
         public Conexiones(string conexion,string raizProyecto) 
         {
             this.conexion = conexion;

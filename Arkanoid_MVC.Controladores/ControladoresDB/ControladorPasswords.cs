@@ -25,29 +25,34 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
             return repositorio.leer();
         }
 
-        public override void buscar(Passwords entity)
+        public override Passwords buscar(Passwords entity)
         {
-            throw new NotImplementedException();
+            return lista.Find(n => n.Equals(entity));
         }
 
-        public override void buscar(int value)
+        public override Passwords buscar(int value)
         {
-            throw new NotImplementedException();
+            return lista.Find(n => n.id.Equals(value));
         }
 
         public override void eliminar(Passwords entity)
         {
-            throw new NotImplementedException();
+            repositorio.eliminar(entity);
         }
 
         public override void registrar(Passwords entity)
         {
-            throw new NotImplementedException();
+            while (repetido(entity))
+            {
+                entity.id++;
+            }
+
+            repositorio.registrar(entity);
         }
 
         public override bool repetido(Passwords entity)
         {
-            throw new NotImplementedException();
+            return lista.Any(n => n.id == entity.id);
         }
 
         public override void vaciar()

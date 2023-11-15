@@ -23,12 +23,10 @@ namespace Arkanoid_MVC.Vista
     /// </summary>
     public partial class Menu_Principal : Window
     {
-        private Usuarios usuario;
         private Conexiones conexion;
-        public Menu_Principal(Usuarios usuario, Conexiones conexiones)
+        public Menu_Principal(Conexiones conexiones)
         {
             InitializeComponent();
-            this.usuario = usuario;
             this.conexion = conexiones;
             Title = "Menu principal";
             empezar.Content = "Empezar partida";
@@ -39,10 +37,10 @@ namespace Arkanoid_MVC.Vista
 
         public void empezar_partida(object sender, RoutedEventArgs e)
         {
-            int num_bolas = 25;
+            int num_bolas = 20;
             float velocidad_jugador = 5.3f;
             float velocidad_bola = 2.8f;
-            Juego_arkanoid juego = new Juego_arkanoid(usuario, velocidad_jugador, velocidad_bola,num_bolas, conexion);
+            Juego_arkanoid juego = new Juego_arkanoid(velocidad_jugador, velocidad_bola,num_bolas, conexion);
             juego.Show();
             this.Close();
         }
@@ -55,7 +53,7 @@ namespace Arkanoid_MVC.Vista
         private void score_Click(object sender, RoutedEventArgs e)
         {
 
-            ScoreWindow score = new ScoreWindow(usuario, conexion);
+            ScoreWindow score = new ScoreWindow(conexion);
             score.Show();
 
         }

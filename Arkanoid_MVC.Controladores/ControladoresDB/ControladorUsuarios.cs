@@ -26,35 +26,39 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
         {
             return repositorio.leer();
         }
-
-        public override void buscar(Usuarios entity)
+        public override Usuarios buscar(Usuarios entity)
         {
-            throw new NotImplementedException();
+            return lista.Find(n => n.Equals(entity));
         }
 
-        public override void buscar(int value)
+        public override Usuarios buscar(int value)
         {
-          repositorio.buscar(value);
+            return lista.Find(n => n.id.Equals(value));
         }
 
         public override void eliminar(Usuarios entity)
         {
-            throw new NotImplementedException();
+            repositorio.eliminar(entity);
         }
 
         public override void registrar(Usuarios entity)
         {
+            while (repetido(entity))
+            {
+                entity.id++;
+            }
+
             repositorio.registrar(entity);
         }
 
         public override bool repetido(Usuarios entity)
         {
-            throw new NotImplementedException();
+            return lista.Any(n => n.id == entity.id);
         }
 
         public override void vaciar()
         {
-           foreach (Usuarios usuario in lista)
+            foreach (Usuarios usuario in lista)
             {
                 repositorio.eliminar(usuario);
             }

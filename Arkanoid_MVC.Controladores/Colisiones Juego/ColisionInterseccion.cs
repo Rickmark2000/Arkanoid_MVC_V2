@@ -8,11 +8,10 @@ namespace Arkanoid_MVC.Controladores.Colisiones
     {
         public void Colision_interseccionY(Ellipse bola, Rectangle bloque,ref double posY)
         {
-            bool arriba = (Canvas.GetTop(bola) + bola.Height) > (Canvas.GetTop(bloque));
-            bool abajo = (Canvas.GetTop(bola) > (Canvas.GetTop(bloque) +bloque.Height));
-            posY *= -1;
+            bool arriba = (Canvas.GetTop(bola) + bola.Height) > (Canvas.GetTop(bloque)-bola.Height);
+            bool abajo = (Canvas.GetTop(bola) > (Canvas.GetTop(bloque) - bloque.Height));
 
-            /*
+           
 
             if (arriba)
             {
@@ -27,7 +26,7 @@ namespace Arkanoid_MVC.Controladores.Colisiones
                 posY *=-1;
             }
             
-            */
+            
           
         }
 

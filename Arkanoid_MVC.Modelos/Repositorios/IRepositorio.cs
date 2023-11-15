@@ -14,10 +14,6 @@ namespace Arkanoid_MVC.Modelos.Interfaces
 
         Task eliminar(Entity entity);
 
-        Task<Entity> buscar(Entity entity);
-
-        Task<Entity> buscar(int value);
-
         List<Entity> leer();
 
     }

@@ -21,15 +21,7 @@ namespace Arkanoid_MVC.Modelos.Repositorios
             context = contexto;
         }
 
-        public async Task<Usuarios> buscar(Usuarios entity)
-        {
-            return await context.Usuarios.FirstOrDefaultAsync(n => n == entity);
-        }
 
-        public async Task<Usuarios> buscar(int value)
-        {
-            return await context.Usuarios.FirstOrDefaultAsync(n => n.id == value);
-        }
 
         public async Task eliminar(Usuarios entity)
         {

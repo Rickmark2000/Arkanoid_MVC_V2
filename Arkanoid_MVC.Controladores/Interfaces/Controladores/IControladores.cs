@@ -15,9 +15,9 @@ namespace Arkanoid_MVC.Controladores.Interfaces
 
         void registrar(I entity);
 
-        void buscar(I entity);
+        I buscar(I entity);
 
-        void buscar(int value);
+        I buscar(int value);
 
     }
 }
