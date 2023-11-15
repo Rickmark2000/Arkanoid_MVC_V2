@@ -27,7 +27,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
 
         public override Passwords buscar(Passwords entity)
         {
-            return lista.Find(n => n.Equals(entity));
+            return lista.FirstOrDefault(n => n.password.Contains(entity.password));
         }
 
         public override Passwords buscar(int value)
@@ -38,6 +38,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
         public override void eliminar(Passwords entity)
         {
             repositorio.eliminar(entity);
+            lista = listaObjetos();
         }
 
         public override void registrar(Passwords entity)
@@ -48,6 +49,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
             }
 
             repositorio.registrar(entity);
+            lista = listaObjetos();
         }
 
         public override bool repetido(Passwords entity)

@@ -38,6 +38,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
         public override void eliminar(Jugadores entity)
         {
             repositorio.eliminar(entity);
+            lista = listaObjetos();
         }
 
         public override void registrar(Jugadores entity)
@@ -48,6 +49,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
             }
 
             repositorio.registrar(entity);
+            lista = listaObjetos();
         }
 
         public override bool repetido(Jugadores entity)

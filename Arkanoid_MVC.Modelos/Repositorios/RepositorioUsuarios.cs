@@ -23,10 +23,10 @@ namespace Arkanoid_MVC.Modelos.Repositorios
 
 
 
-        public async Task eliminar(Usuarios entity)
+        public void eliminar(Usuarios entity)
         {
             context.Usuarios.Remove(entity);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
 
         }
         public List<Usuarios> leer()
@@ -34,10 +34,11 @@ namespace Arkanoid_MVC.Modelos.Repositorios
             return context.Usuarios.ToList();
         }
 
-        public async Task registrar(Usuarios entity)
+        public void registrar(Usuarios entity)
         {
             context.Usuarios.Add(entity);
-            await context.SaveChangesAsync();
+            
+            context.SaveChanges();
 
         }
     }

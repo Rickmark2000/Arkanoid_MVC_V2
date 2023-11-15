@@ -10,11 +10,27 @@
     <Grid x:Name="menu">
         <Canvas  Name="CanvasJuego" Background="Beige" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=Window}}" 
         Height="{Binding Height, RelativeSource={RelativeSource AncestorType=Window}}">
-            <Button Content="Button" Canvas.Left="294" Canvas.Top="240" Height="41" Width="212" Click="Button_Registrar" Name="boton_registro" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <Button Content="Button" Canvas.Left="294" Canvas.Top="303" Height="42" Width="212" HorizontalAlignment="Left" VerticalAlignment="Center" Name="boton_login" Click="boton_login_Click"/>
-            <TextBox Canvas.Left="294" TextWrapping="Wrap" Text="TextBox" Canvas.Top="133" Width="212" Height="20"/>
-            <TextBox Canvas.Left="294" TextWrapping="Wrap" Text="TextBox" Canvas.Top="180" Width="212" HorizontalAlignment="Center" Height="20" VerticalAlignment="Top"/>
-            <TextBox Canvas.Left="294" TextWrapping="Wrap" Text="TextBox" Canvas.Top="90" Width="212" Height="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox Canvas.Left="156" TextWrapping="Wrap" Canvas.Top="140" Width="225" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="registro_nombre"/>
+            <TextBox Canvas.Left="156" TextWrapping="Wrap" Canvas.Top="96" Width="225" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="registro_usuario"/>
+            <TextBox Canvas.Left="156" TextWrapping="Wrap" Canvas.Top="178" Width="225" Height="24" x:Name="registro_apellidos" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox Canvas.Left="156" TextWrapping="Wrap" Canvas.Top="223" Width="225" Height="24" x:Name="registro_email" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <PasswordBox Canvas.Left="156" Canvas.Top="269" Width="225" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" x:Name="registro_contrasena"/>
+            <Button Content="Button" Canvas.Left="156" Canvas.Top="312" Height="49" Width="225" Click="Button_Registrar" Name="boton_registro" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Content="Apellidos" Canvas.Left="83" Canvas.Top="174" HorizontalAlignment="Left" VerticalAlignment="Top" Name="usuarioLabel" RenderTransformOrigin="0.5,1.022" Height="31" Width="63" />
+            <Label Content="email" Canvas.Left="94" Canvas.Top="223" HorizontalAlignment="Left" VerticalAlignment="Top" Name="emailLabel" Height="31" Width="41"/>
+            <Label Content="Contraseña" Canvas.Left="77" Canvas.Top="265" HorizontalAlignment="Left" VerticalAlignment="Top" Name="passLabel" RenderTransformOrigin="0.697,0.868" Height="31" Width="74"/>
+            <Label Content="Usuario" Canvas.Left="88" Canvas.Top="98" x:Name="usuarioLabel_Copiar" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.526,-0.018" Height="32" Width="53"/>
+            <Label Content="Nombre" Canvas.Left="87" Canvas.Top="137" x:Name="label_nombre" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.526,-0.018" Height="31" Width="57"/>
+
+            <Button Content="Button" Canvas.Left="540" Canvas.Top="312" Height="49" Width="212" HorizontalAlignment="Left" VerticalAlignment="Center" Name="boton_login" Click="boton_login_Click"/>
+            <PasswordBox Canvas.Left="527" Canvas.Top="269" Width="225" Height="24" x:Name="login_contrasena" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Content="Contraseña" Canvas.Left="430" Canvas.Top="266" x:Name="passLabel_Copiar" RenderTransformOrigin="0.697,0.868" Height="30" Width="74" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBox Canvas.Left="527" TextWrapping="Wrap" Canvas.Top="221" Width="225" Height="24" x:Name="login_usuario" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Content="Usuario" Canvas.Left="451" Canvas.Top="223" x:Name="usuarioLabel_Copiar1" RenderTransformOrigin="0.526,-0.018" Height="32" Width="53" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
+
+
 
         </Canvas>
 

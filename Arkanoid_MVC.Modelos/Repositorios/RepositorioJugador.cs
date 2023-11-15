@@ -20,10 +20,10 @@ namespace Arkanoid_MVC.Modelos.Repositorios
             context = contexto;
         }
 
-        public async Task eliminar(Jugadores entity)
+        public void eliminar(Jugadores entity)
         {
             context.jugadores.Remove(entity);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
 
         }
 
@@ -32,10 +32,10 @@ namespace Arkanoid_MVC.Modelos.Repositorios
             return context.jugadores.ToList();
         }
 
-        public async Task registrar(Jugadores entity)
+        public void registrar(Jugadores entity)
         {
             context.jugadores.Add(entity);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
 
         }
     }

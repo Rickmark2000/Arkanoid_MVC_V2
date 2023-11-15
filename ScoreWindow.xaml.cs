@@ -18,14 +18,11 @@ namespace Arkanoid_MVC
         {
             InitializeComponent();
             conexionConsultas = new Consulta(conexion);
-           
-            string consulta = $"select * from usuarios u WHERE u.Id ={conexion.idSesion}";
 
-            /*
             string consulta = "select u.Id,u.nombre,j.nick,u.email,p.puntuacion,j.vidas " +
               "from jugadores j INNER JOIN usuarios u on j.idUsuario = u.Id " +
-              $"inner join puntuaciones p on p.idJugador = j.id WHERE u.Id ={usuario.id}";
-            */
+              $"inner join puntuaciones p on p.idJugador = j.id WHERE u.Id ={conexion.idSesion}";
+
 
             conexionConsultas.mostrar_select(consulta, datos);
         }

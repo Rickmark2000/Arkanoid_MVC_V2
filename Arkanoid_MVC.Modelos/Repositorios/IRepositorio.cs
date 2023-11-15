@@ -10,9 +10,9 @@ namespace Arkanoid_MVC.Modelos.Interfaces
 {
     public interface IRepositorio<Entity> where Entity : class
     {
-        Task registrar(Entity entity);
+        void registrar(Entity entity);
 
-        Task eliminar(Entity entity);
+        void eliminar(Entity entity);
 
         List<Entity> leer();
 

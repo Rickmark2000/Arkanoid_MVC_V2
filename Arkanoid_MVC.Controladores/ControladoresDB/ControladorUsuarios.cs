@@ -2,6 +2,7 @@
 using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Modelos.Modelos;
 using Arkanoid_MVC.Modelos.Repositorios;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
         }
         public override Usuarios buscar(Usuarios entity)
         {
-            return lista.Find(n => n.Equals(entity));
+            return lista.FirstOrDefault(n=>n.usuario.Equals(entity.usuario));
         }
 
         public override Usuarios buscar(int value)
@@ -39,6 +40,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
         public override void eliminar(Usuarios entity)
         {
             repositorio.eliminar(entity);
+            lista = listaObjetos();
         }
 
         public override void registrar(Usuarios entity)
@@ -48,7 +50,8 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
                 entity.id++;
             }
 
-            repositorio.registrar(entity);
+          repositorio.registrar(entity);
+            lista = listaObjetos();
         }
 
         public override bool repetido(Usuarios entity)

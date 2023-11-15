@@ -39,6 +39,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
         public override void eliminar(Puntuaciones entity)
         {
             repositorio.eliminar(entity);
+            lista = listaObjetos();
         }
 
         public override void registrar(Puntuaciones entity)
@@ -49,6 +50,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
             }
 
             repositorio.registrar(entity);
+            lista = listaObjetos();
         }
 
         public override bool repetido(Puntuaciones entity)

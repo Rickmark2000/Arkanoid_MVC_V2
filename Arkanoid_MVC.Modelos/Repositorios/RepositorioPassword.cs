@@ -20,10 +20,10 @@ namespace Arkanoid_MVC.Modelos.Repositorios
         }
         
 
-        public async Task eliminar(Passwords entity)
+        public void eliminar(Passwords entity)
         {
             context.passwords.Remove(entity);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
 
         }
 
@@ -32,10 +32,10 @@ namespace Arkanoid_MVC.Modelos.Repositorios
             return context.passwords.ToList();
         }
 
-        public async Task registrar(Passwords entity)
+        public void registrar(Passwords entity)
         {
             context.passwords.Add(entity);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
 
         }
     }

@@ -21,10 +21,10 @@ namespace Arkanoid_MVC.Modelos.Repositorios
 
      
 
-        public async Task eliminar(Puntuaciones entity)
+        public void eliminar(Puntuaciones entity)
         {
             context.Puntuaciones.Remove(entity);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
 
         }
 
@@ -33,10 +33,10 @@ namespace Arkanoid_MVC.Modelos.Repositorios
             return context.Puntuaciones.ToList();
         }
 
-        public async Task registrar(Puntuaciones entity)
+        public void registrar(Puntuaciones entity)
         {
             context.Puntuaciones.Add(entity);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
 
         }
 
