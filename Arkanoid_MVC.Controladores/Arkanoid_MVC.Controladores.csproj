@@ -71,6 +71,7 @@
     <Compile Include="Interfaces\Factory\IfigurasFactory.cs" />
     <Compile Include="Interfaces\Comprobar Repetido\IComprobarRepetido.cs" />
     <Compile Include="Interfaces\Diseño Canvas\IDisenoFigura.cs" />
+    <Compile Include="Interfaces\Controladores\IControladores.cs" />
     <Compile Include="Interfaces\Observar Colision\IObservarColision.cs" />
     <Compile Include="Interfaces\Partida\IPartida.cs" />
     <Compile Include="Interfaces\Listas\IDiccionarioClase.cs" />

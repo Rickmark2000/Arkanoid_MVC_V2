@@ -10,12 +10,19 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Controladores.ControladoresDB
 {
-    public class ControladorJugadores : Controlador
+    public class ControladorJugadores : Controlador<Jugadores>
     {
         private IRepositorio<Jugadores> repositorio;
         public ControladorJugadores(Conexiones conexiones) : base(conexiones)
         {
             repositorio = new RepositorioJugador(contexto);
+        }
+
+        public override List<Jugadores> listaObjetos => throw new NotImplementedException();
+
+        public override bool repetido(Jugadores entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }
