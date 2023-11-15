@@ -177,20 +177,20 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB\ContextoDB\DBContexto.cs" />
-    <Compile Include="DB\DB_Consultas\DBConsultas.cs" />
-    <Compile Include="Enum\ETipoColision.cs" />
-    <Compile Include="Enum\ETipoShape.cs" />
+    <Compile Include="DB\DB Contexto\DBContexto.cs" />
+    <Compile Include="DB\DB Consultas\DBConsultas.cs" />
+    <Compile Include="Enumeraciones\ETipoColision.cs" />
+    <Compile Include="Enumeraciones\ETipoShape.cs" />
     <Compile Include="Repositorios\IRepositorio.cs" />
-    <Compile Include="Modelos\Conexiones.cs" />
-    <Compile Include="Modelos\Figura.cs" />
-    <Compile Include="Modelos\FiguraSinVelocidad.cs" />
-    <Compile Include="Modelos\FiguraVelocidad.cs" />
-    <Compile Include="Modelos\Modelos DB\DatosBancarios.cs" />
-    <Compile Include="Modelos\Modelos DB\Jugadores.cs" />
-    <Compile Include="Modelos\Modelos DB\Passwords.cs" />
-    <Compile Include="Modelos\Modelos DB\Puntuaciones.cs" />
-    <Compile Include="Modelos\Modelos DB\Usuarios.cs" />
+    <Compile Include="Entidades\Conexiones.cs" />
+    <Compile Include="Entidades\Figura.cs" />
+    <Compile Include="Entidades\FiguraSinVelocidad.cs" />
+    <Compile Include="Entidades\FiguraVelocidad.cs" />
+    <Compile Include="Entidades\Entidades DB\DatosBancarios.cs" />
+    <Compile Include="Entidades\Entidades DB\Jugadores.cs" />
+    <Compile Include="Entidades\Entidades DB\Passwords.cs" />
+    <Compile Include="Entidades\Entidades DB\Puntuaciones.cs" />
+    <Compile Include="Entidades\Entidades DB\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
