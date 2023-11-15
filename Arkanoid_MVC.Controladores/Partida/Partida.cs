@@ -100,7 +100,7 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
             {
                 nombre_Jugador = Interaction.InputBox("El nombre tiene que tener un tamaño de 3", "Introducir nick", "Aqui el nombre");
 
-            } while (nombre_Jugador.Equals("") || !(nombre_Jugador.Length < 3 &&  nombre_Jugador.Length > 3));
+            } while (nombre_Jugador.Equals("") || (nombre_Jugador.Length < 3 ||  nombre_Jugador.Length > 3));
 
             Jugadores jugador = new Jugadores(1,conexion.idSesion,score,nombre_Jugador,3);
 

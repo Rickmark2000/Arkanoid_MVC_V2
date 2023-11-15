@@ -24,11 +24,23 @@ namespace Arkanoid_MVC
         public MainWindow()
         {
             InitializeComponent();
+            boton_login.Content = "Logearse";
+            boton_registro.Content = "Registrarse";
+
             conexion = new Conexiones(connectionString, proyectoRaiz,usuario.id);
+        }
+
+        private void Button_Registrar(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("dsadsa");
+        }
+
+        private void boton_login_Click(object sender, RoutedEventArgs e)
+        {
+
             Menu_Principal menu = new Menu_Principal(conexion);
             menu.Show();
             this.Close();
         }
-
     }
 }

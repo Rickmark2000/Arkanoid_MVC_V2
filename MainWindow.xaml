@@ -10,7 +10,12 @@
     <Grid x:Name="menu">
         <Canvas  Name="CanvasJuego" Background="Beige" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=Window}}" 
         Height="{Binding Height, RelativeSource={RelativeSource AncestorType=Window}}">
-       
+            <Button Content="Button" Canvas.Left="294" Canvas.Top="240" Height="41" Width="212" Click="Button_Registrar" Name="boton_registro" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Button Content="Button" Canvas.Left="294" Canvas.Top="303" Height="42" Width="212" HorizontalAlignment="Left" VerticalAlignment="Center" Name="boton_login" Click="boton_login_Click"/>
+            <TextBox Canvas.Left="294" TextWrapping="Wrap" Text="TextBox" Canvas.Top="133" Width="212" Height="20"/>
+            <TextBox Canvas.Left="294" TextWrapping="Wrap" Text="TextBox" Canvas.Top="180" Width="212" HorizontalAlignment="Center" Height="20" VerticalAlignment="Top"/>
+            <TextBox Canvas.Left="294" TextWrapping="Wrap" Text="TextBox" Canvas.Top="90" Width="212" Height="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
         </Canvas>
 
     </Grid>
