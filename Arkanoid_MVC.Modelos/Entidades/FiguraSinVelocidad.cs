@@ -1,4 +1,4 @@
-﻿using Arkanoid_MVC.Modelos.Enum;
+﻿using Arkanoid_MVC.Modelos.Enumeraciones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,7 @@ namespace Arkanoid_MVC.Modelos.Modelos
 {
     public class FiguraSinVelocidad:Figura
     {
+
         public FiguraSinVelocidad(ETipoShape tipo) : base(tipo)
         {
         }

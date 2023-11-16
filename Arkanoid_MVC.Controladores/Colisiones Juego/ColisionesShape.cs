@@ -1,7 +1,7 @@
 ﻿
 using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Controladores.Observer;
-using Arkanoid_MVC.Modelos.Enum;
+using Arkanoid_MVC.Modelos.Enumeraciones;
 using System.Windows.Controls;
 using System.Windows.Shapes;
 

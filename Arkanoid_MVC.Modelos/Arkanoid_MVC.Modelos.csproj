@@ -183,6 +183,7 @@
     <Compile Include="DB\DB Contexto\DBContexto.cs" />
     <Compile Include="DB\DB Consultas\DBConsultas.cs" />
     <Compile Include="Enumeraciones\ETipoColision.cs" />
+    <Compile Include="Enumeraciones\ETipoFigura.cs" />
     <Compile Include="Enumeraciones\ETipoShape.cs" />
     <Compile Include="Repositorios\IRepositorio.cs" />
     <Compile Include="Entidades\Conexiones.cs" />

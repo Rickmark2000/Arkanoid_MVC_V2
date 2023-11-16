@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
-using Arkanoid_MVC.Modelos.Enum;
+using Arkanoid_MVC.Modelos.Enumeraciones;
 
 namespace Arkanoid_MVC.Modelos.Interfaces
 {

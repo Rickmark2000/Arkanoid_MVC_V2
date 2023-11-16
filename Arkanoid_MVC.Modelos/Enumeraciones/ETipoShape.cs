@@ -1,5 +1,5 @@
 ﻿
-namespace Arkanoid_MVC.Modelos.Enum
+namespace Arkanoid_MVC.Modelos.Enumeraciones
 {
     public enum ETipoShape
     {

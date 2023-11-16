@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Arkanoid_MVC.Modelos.Enumeraciones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +8,9 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Modelos.Interfaces
 {
-    public interface IfigurasFactory<Objeto> where Objeto : Shape
+    public interface IFactory<Objeto> where Objeto : class
     {
-        Objeto crear();
+        Objeto crear_figura(Enum tipo);
 
     }
 }

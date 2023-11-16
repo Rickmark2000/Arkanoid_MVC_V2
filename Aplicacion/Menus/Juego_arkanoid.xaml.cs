@@ -36,8 +36,10 @@ namespace Arkanoid_MVC
             InitializeComponent();
             this.ResizeMode = ResizeMode.CanMinimize;
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            Random random = new Random();
             this.conexiones = conexion;
+
+            Random random = new Random();
+
             controles = new ControlesJugador(ventana, velocidad_jugador);
             partida = new Partida(random.Next(9,num_bolas),velocidad_bola);
             partida.prepararJuego(Width, Height, CanvasJuego);

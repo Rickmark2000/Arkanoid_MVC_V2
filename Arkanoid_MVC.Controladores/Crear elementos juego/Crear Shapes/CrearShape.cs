@@ -1,7 +1,7 @@
 ﻿using Arkanoid_MVC.Controladores.Diseño_Figuras;
 using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Controladores.Management;
-using Arkanoid_MVC.Modelos.Enum;
+using Arkanoid_MVC.Modelos.Enumeraciones;
 using Arkanoid_MVC.Modelos.Modelos;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +14,13 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Controladores.Juego
 {
-    public class CrearFiguras
+    public class CrearShape
     {
 
         public Ellipse crear_bola(double with, double height, Canvas canvas_juego)
         {
             DisenoElipse bolaDiseño;
-            FiguraVelocidad bola = new FiguraVelocidad(ETipoShape.Elipse);
+            Figura bola = new FiguraVelocidad(ETipoShape.Elipse);
             bola.ancho = 35;
             bola.alto = 35;
             bola.posicionX = with / 2;
@@ -34,7 +34,7 @@ namespace Arkanoid_MVC.Controladores.Juego
             Rectangle[] bloques = new Rectangle[num_bloques];
             IManagement<Rectangle> bloquesManagement = new ManagementBloques();
             DisenoRectangulo bloqueDiseño;
-            FiguraSinVelocidad bloqueFigura = new FiguraSinVelocidad(ETipoShape.Rectangulo);
+            Figura bloqueFigura = new FiguraSinVelocidad(ETipoShape.Rectangulo);
 
             bloqueFigura.ancho = 110;
             bloqueFigura.alto = 30;
@@ -71,7 +71,7 @@ namespace Arkanoid_MVC.Controladores.Juego
         public Rectangle crear_plataforma(double with, double height, Canvas canvas_juego)
         {
             DisenoRectangulo dieseñoPlataforma;
-            FiguraVelocidad plataforma = new FiguraVelocidad(ETipoShape.Rectangulo);
+            Figura plataforma = new FiguraVelocidad(ETipoShape.Rectangulo);
             plataforma.ancho = 160;
             plataforma.alto = 20;
             plataforma.posicionX = with / 2;

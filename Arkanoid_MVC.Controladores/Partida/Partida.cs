@@ -5,7 +5,7 @@ using Arkanoid_MVC.Controladores.Controles;
 using Arkanoid_MVC.Controladores.Interfaces;
 using Arkanoid_MVC.Controladores.Interfaces.Controles;
 using Arkanoid_MVC.Controladores.Juego;
-using Arkanoid_MVC.Modelos.Enum;
+using Arkanoid_MVC.Modelos.Enumeraciones;
 using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Modelos.Modelos;
 using Arkanoid_MVC.Modelos.Repositorios;
@@ -27,7 +27,7 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
 {
     public class Partida:IPartida<Rectangle>
     {
-        private CrearFiguras crear = new CrearFiguras();
+        private CrearShape crear = new CrearShape();
         private Rectangle plataforma_jugador;
         private Ellipse bola;
         private IManagement<Rectangle> bloques;
