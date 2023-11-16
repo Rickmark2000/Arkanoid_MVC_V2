@@ -60,7 +60,7 @@
     <Compile Include="Acceso DB\ControladoresDB\ControladorPasswords.cs" />
     <Compile Include="Acceso DB\ControladoresDB\ControladorPuntuaciones.cs" />
     <Compile Include="Acceso DB\ControladoresDB\ControladorUsuarios.cs" />
-    <Compile Include="Controles Jugador\ControlesJugador.cs" />
+    <Compile Include="Controles\ControlesJugador.cs" />
     <Compile Include="Crear Figuras\Diseño Figuras\Diseno.cs" />
     <Compile Include="Crear Figuras\Diseño Figuras\DisenoElipse.cs" />
     <Compile Include="Crear Figuras\Diseño Figuras\DisenoRectangulo.cs" />

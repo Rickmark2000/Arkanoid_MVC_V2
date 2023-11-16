@@ -230,13 +230,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Menu_Principal.xaml.cs">
+    <Compile Include="Aplicacion\Menus\Menu_Principal.xaml.cs">
       <DependentUpon>Menu_Principal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ScoreWindow.xaml.cs">
+    <Compile Include="Aplicacion\Menus\ScoreWindow.xaml.cs">
       <DependentUpon>ScoreWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Juego_arkanoid.xaml">
+    <Page Include="Aplicacion\Menus\Juego_arkanoid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -248,18 +248,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Juego_arkanoid.xaml.cs">
+    <Compile Include="Aplicacion\Menus\Juego_arkanoid.xaml.cs">
       <DependentUpon>Juego_arkanoid.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Menu_Principal.xaml">
+    <Page Include="Aplicacion\Menus\Menu_Principal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ScoreWindow.xaml">
+    <Page Include="Aplicacion\Menus\ScoreWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
