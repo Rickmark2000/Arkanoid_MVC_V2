@@ -18,6 +18,7 @@ using Arkanoid_MVC.Modelos.Repositorios;
 using Arkanoid_MVC.Controladores.Partida_Manage;
 using Arkanoid_MVC.Controladores.Conexion;
 using Arkanoid_MVC.Vista;
+using Arkanoid_MVC.Controladores.Interfaces.Controles;
 
 namespace Arkanoid_MVC
 {
@@ -26,8 +27,8 @@ namespace Arkanoid_MVC
 
         private DispatcherTimer timer;
         private int puntuacion_actual = 0;
-        private Partida partida;
-        private ControlesJugador controles;
+        private IPartida partida;
+        private IControles<Rectangle> controles;
         private Conexiones conexiones;
 
         public Juego_arkanoid(float velocidad_jugador,float velocidad_bola, int num_bolas, Conexiones conexion)
@@ -56,7 +57,7 @@ namespace Arkanoid_MVC
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            partida.actualizar_posBola();
+            partida.actualizar_pos();
             partida.actualizar_posJugador(controles, ref CanvasJuego);
             partida.actualizar_colisiones(ref CanvasJuego, ref puntuacion_actual);
 

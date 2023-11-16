@@ -24,7 +24,7 @@ using System.Windows.Threading;
 
 namespace Arkanoid_MVC.Controladores.Partida_Manage
 {
-    public class Partida
+    public class Partida:IPartida
     {
         private CrearFiguras crear = new CrearFiguras();
         private Rectangle plataforma_jugador;
@@ -65,7 +65,7 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
             colision.colisiona(bola, ref actualBolaX, ref actualBolaY, ref puntuacion_actual, ref CanvasJuego, bloques);
         }
 
-        public void actualizar_posBola()
+        public void actualizar_pos()
         { 
             Canvas.SetTop(bola, BolaInicialY += actualBolaY);
             Canvas.SetLeft(bola, BolaInicialX += actualBolaX);

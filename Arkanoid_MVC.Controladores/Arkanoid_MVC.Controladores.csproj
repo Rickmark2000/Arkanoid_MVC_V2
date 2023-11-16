@@ -68,6 +68,7 @@
     <Compile Include="Factory Shape\FactoryShape.cs" />
     <Compile Include="Factory Shape\FactoryRectangle.cs" />
     <Compile Include="Crear Figuras\CrearFiguras.cs" />
+    <Compile Include="Interfaces\Controles\IControles.cs" />
     <Compile Include="Interfaces\Factory\IfigurasFactory.cs" />
     <Compile Include="Interfaces\Comprobar Repetido\IComprobarRepetido.cs" />
     <Compile Include="Interfaces\Diseño Canvas\IDisenoFigura.cs" />

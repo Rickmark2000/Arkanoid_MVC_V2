@@ -2,10 +2,11 @@
 using System.Windows.Input;
 using System.Windows;
 using System.Windows.Shapes;
+using Arkanoid_MVC.Controladores.Interfaces.Controles;
 
 namespace Arkanoid_MVC.Controladores.Controles
 {
-    public class ControlesJugador
+    public class ControlesJugador:IControles<Rectangle>
     {
         private bool goLeft, goRight;
         private float velocidad;
@@ -35,17 +36,17 @@ namespace Arkanoid_MVC.Controladores.Controles
             else if (e.Key == Key.Right) { goRight = true; }
         }
 
-        public void mover(Rectangle o, ref double posX, Canvas CanvasJuego)
+        public void mover(Rectangle jugador, ref double posX, Canvas CanvasJuego)
         {
 
             double limiteIzquierdo = 0;
-            double limiteDerecho = CanvasJuego.ActualWidth - o.Width;
-            if (!(Canvas.GetLeft(o) < limiteIzquierdo) && goLeft)
+            double limiteDerecho = CanvasJuego.ActualWidth - jugador.Width;
+            if (!(Canvas.GetLeft(jugador) < limiteIzquierdo) && goLeft)
             {
                 posX -= velocidad;
             }
 
-            if (!(Canvas.GetLeft(o) > limiteDerecho) && goRight)
+            if (!(Canvas.GetLeft(jugador) > limiteDerecho) && goRight)
             {
                 posX += velocidad;
             }
