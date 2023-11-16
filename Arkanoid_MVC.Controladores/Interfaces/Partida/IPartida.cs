@@ -15,7 +15,7 @@ namespace Arkanoid_MVC.Modelos.Interfaces
 {
     public interface IPartida<I> where I : Shape
     {
-        void prepararJuego(double Width, double Height, Canvas CanvasJuego);
+        void prepararJuego(double Width,Canvas CanvasJuego);
         void Guardar_posiciones_iniciales();
         void actualizar_colisiones(ref Canvas CanvasJuego, ref int puntuacion_actual);
         void actualizar_pos();

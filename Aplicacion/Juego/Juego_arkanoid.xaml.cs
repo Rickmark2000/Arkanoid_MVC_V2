@@ -54,7 +54,6 @@ namespace Arkanoid_MVC
         private void preparar_partida()
         {
             Random random = new Random();
-            IFactory<Figura> factory = new FactoryFigura();
             ICrearFiguras<FiguraSinVelocidad> figuraSinVelocidad = new CrearFiguraSinVelocidad();
             ICrearFiguras<FiguraVelocidad> figuraVelocidad = new CrearFiguraVelocidad();
 
@@ -71,7 +70,7 @@ namespace Arkanoid_MVC
         {
             controles = new ControlesJugador(ventana, plataforma.velocidad);
             partida = new Partida(bola, bloque, plataforma);
-            partida.prepararJuego(Width, Height, CanvasJuego);
+            partida.prepararJuego(Width, CanvasJuego);
             partida.Guardar_posiciones_iniciales();
 
             Iniciar_timer();

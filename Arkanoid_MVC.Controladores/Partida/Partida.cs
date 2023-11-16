@@ -47,9 +47,9 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
         }
 
 
-        public void prepararJuego(double Width, double Height,Canvas CanvasJuego)
+        public void prepararJuego(double Width,Canvas CanvasJuego)
         {
-            bola = crear.crear_bola(Width, Height, CanvasJuego,figuraBola);
+            bola = crear.crear_bola(CanvasJuego,figuraBola);
             plataforma_jugador = crear.crear_plataforma(CanvasJuego,figuraPlataforma);
             bloques = crear.crear_bloques(num_bloques, CanvasJuego, Width,figuraBloque);
         }

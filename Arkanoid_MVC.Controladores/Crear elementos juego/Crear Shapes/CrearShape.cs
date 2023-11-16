@@ -18,13 +18,13 @@ namespace Arkanoid_MVC.Controladores.Juego
     {
         private IEditarShape editar;
 
-        public Ellipse crear_bola(double with, double height, Canvas canvas_juego, Figura figuraBola)
+        public Ellipse crear_bola(Canvas canvas_juego, Figura figuraBola)
         {
             editar = new EditarElipse(figuraBola);
             return (Ellipse)editar.Implementar(ref canvas_juego, Colors.Red, Colors.Black, 2);
         }
 
-        public ManagementBloques crear_bloques(int num_bloques, Canvas canvas_juego, double with, Figura figuraBloque)
+        public IManagement<Rectangle> crear_bloques(int num_bloques, Canvas canvas_juego, double with, Figura figuraBloque)
         {
             Rectangle[] bloques = new Rectangle[num_bloques];
             IManagement<Rectangle> bloquesManagement = new ManagementBloques();
@@ -52,7 +52,7 @@ namespace Arkanoid_MVC.Controladores.Juego
 
             }
 
-            return (ManagementBloques)bloquesManagement;
+            return bloquesManagement;
         }
 
 
