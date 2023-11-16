@@ -7,7 +7,9 @@ using Arkanoid_MVC.Modelos.Modelos;
 using Arkanoid_MVC.Modelos.Repositorios;
 using Arkanoid_MVC.Vista;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Windows;
 
 
@@ -17,6 +19,8 @@ namespace Arkanoid_MVC
     public partial class MainWindow : Window
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
+        private string connectionString2 = ConfigurationManager.ConnectionStrings["ArkanoidLocalDB"].ConnectionString;
+        
         private string proyectoRaiz = System.IO.Path.GetFullPath(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\"));
         private Conexiones conexion;
         private IControladores<Usuarios> usuarios;
@@ -30,7 +34,7 @@ namespace Arkanoid_MVC
            
 
             conexion = new Conexiones(connectionString, proyectoRaiz);
-        
+
         }
 
         private void Button_Registrar(object sender, RoutedEventArgs e)

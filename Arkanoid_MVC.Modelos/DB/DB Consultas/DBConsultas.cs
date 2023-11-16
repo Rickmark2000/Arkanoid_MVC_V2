@@ -65,6 +65,7 @@ namespace Arkanoid_MVC.Controladores.DB_Controller
                                 lista.Add(reader[i]);
                             }
                         }
+                        conexion.Close();
                     }
 
                 }

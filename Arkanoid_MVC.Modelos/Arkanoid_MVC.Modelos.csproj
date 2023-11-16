@@ -189,7 +189,6 @@
     <Compile Include="Entidades\Figura.cs" />
     <Compile Include="Entidades\FiguraSinVelocidad.cs" />
     <Compile Include="Entidades\FiguraVelocidad.cs" />
-    <Compile Include="Entidades\Entidades DB\DatosBancarios.cs" />
     <Compile Include="Entidades\Entidades DB\Jugadores.cs" />
     <Compile Include="Entidades\Entidades DB\Passwords.cs" />
     <Compile Include="Entidades\Entidades DB\Puntuaciones.cs" />

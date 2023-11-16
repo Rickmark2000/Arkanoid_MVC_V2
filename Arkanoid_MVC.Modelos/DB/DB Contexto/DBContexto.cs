@@ -16,7 +16,6 @@ namespace Arkanoid_MVC.Modelos.ContextoDB
         public DbSet<Jugadores> jugadores { get; set; }
         public DbSet<Puntuaciones> Puntuaciones { get; set; }
         public DbSet<Passwords> passwords { get; set; }
-        public DbSet<DatosBancarios> datosBancarios { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
 
 
@@ -34,7 +33,6 @@ namespace Arkanoid_MVC.Modelos.ContextoDB
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<DatosBancarios>().HasKey(n => n.Id);
             modelBuilder.Entity<Usuarios>().HasKey(n => n.id);
             modelBuilder.Entity<Usuarios>().Property(n => n.id).ValueGeneratedOnAdd();
             Assembly assemblyWithConfigurations = GetType().Assembly;
