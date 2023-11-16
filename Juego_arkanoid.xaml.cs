@@ -27,7 +27,7 @@ namespace Arkanoid_MVC
 
         private DispatcherTimer timer;
         private int puntuacion_actual = 0;
-        private IPartida partida;
+        private IPartida<Rectangle> partida;
         private IControles<Rectangle> controles;
         private Conexiones conexiones;
 

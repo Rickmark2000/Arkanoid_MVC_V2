@@ -3,6 +3,7 @@ using Arkanoid_MVC.Controladores.Conexion;
 using Arkanoid_MVC.Controladores.ControladoresDB;
 using Arkanoid_MVC.Controladores.Controles;
 using Arkanoid_MVC.Controladores.Interfaces;
+using Arkanoid_MVC.Controladores.Interfaces.Controles;
 using Arkanoid_MVC.Controladores.Juego;
 using Arkanoid_MVC.Modelos.Enum;
 using Arkanoid_MVC.Modelos.Interfaces;
@@ -24,7 +25,7 @@ using System.Windows.Threading;
 
 namespace Arkanoid_MVC.Controladores.Partida_Manage
 {
-    public class Partida:IPartida
+    public class Partida:IPartida<Rectangle>
     {
         private CrearFiguras crear = new CrearFiguras();
         private Rectangle plataforma_jugador;
@@ -83,7 +84,7 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
             }
         }
 
-        public void actualizar_posJugador(ControlesJugador controles,ref Canvas CanvasJuego)
+        public void actualizar_posJugador(IControles<Rectangle> controles,ref Canvas CanvasJuego)
         {
             Canvas.SetLeft(plataforma_jugador, PlataformaInicialX);
             controles.mover(plataforma_jugador, ref PlataformaInicialX, CanvasJuego);
