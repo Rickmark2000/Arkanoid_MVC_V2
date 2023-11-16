@@ -17,19 +17,9 @@ namespace Arkanoid_MVC.Controladores.Diseño_Figuras
 {
     public class ImplementarRectangulo : ImplementarShape<Rectangle>
     {
-        private int num_bloques;
-        private IManagement<Rectangle> management;
-        private double with;
 
         public ImplementarRectangulo(Figura figura) : base(figura)
         {
-        }
-
-        public ImplementarRectangulo(Figura figura, int num_bloques, IManagement<Rectangle> bloquesManagement, double with) : this(figura)
-        {
-            this.num_bloques = num_bloques;
-            this.management = bloquesManagement;
-            this.with = with;
         }
 
         public override Rectangle Implementar(ref Canvas element, Color color_fondo, Color color_borde, int grosor_borde)

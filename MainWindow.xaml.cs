@@ -55,7 +55,7 @@ namespace Arkanoid_MVC
 
                 usuarios.registrar(usuario);
                 int id = usuarios.buscar(usuario).id;
-                Passwords password = new Passwords(1, id, pass);
+                Passwords password = new Passwords(id, pass);
                 contrasenas.registrar(password);
                 conexion.idSesion = id;
                 MessageBox.Show("Usuario registrado");

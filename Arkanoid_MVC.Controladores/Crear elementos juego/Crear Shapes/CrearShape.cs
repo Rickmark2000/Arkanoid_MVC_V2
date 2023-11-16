@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 using System.Windows.Documents;
+using Arkanoid_MVC.Controladores.Crear_elementos_juego.Posicion_Bloques;
 
 namespace Arkanoid_MVC.Controladores.Juego
 {
@@ -27,32 +28,10 @@ namespace Arkanoid_MVC.Controladores.Juego
         public IManagement<Rectangle> crear_bloques(int num_bloques, Canvas canvas_juego, double with, Figura figuraBloque)
         {
             IManagement<Rectangle> bloquesManagement = new ManagementBloques();
-            IImplementarShape<Rectangle> implementar = new ImplementarRectangulo(figuraBloque, num_bloques, bloquesManagement, with);
-            canvas_juego = posicionar_bloques(num_bloques, canvas_juego, with, figuraBloque, bloquesManagement, implementar);
+            IImplementarShape<Rectangle> implementar = new ImplementarRectangulo(figuraBloque);
+            PosicionBloque posicion = new PosicionBloque();
+            canvas_juego = posicion.posicionar_bloques(num_bloques, canvas_juego, with, figuraBloque, bloquesManagement, implementar);
             return bloquesManagement;
-        }
-
-        private Canvas posicionar_bloques(int num_bloques, Canvas canvas_juego, double with, Figura figuraBloque, IManagement<Rectangle> bloquesManagement, IImplementarShape<Rectangle> implementar)
-        {
-            Rectangle[] bloques = new Rectangle[num_bloques];
-            int separacionX = 11;
-            int separacionY = 11;
-            double tamano_total = 0;
-
-            for (int i = 0; i < bloques.Length; i++)
-            {
-                if (tamano_total + figuraBloque.ancho > with)
-                {
-                    tamano_total = 0;
-                    figuraBloque.posicionX = 26;
-                    figuraBloque.posicionY += figuraBloque.alto + separacionY;
-                }
-                bloquesManagement.anadir(implementar.Implementar(ref canvas_juego, Colors.Red, Colors.Black, 2));
-                tamano_total += figuraBloque.ancho + separacionX;
-                figuraBloque.posicionX += separacionX + figuraBloque.ancho;
-            }
-
-            return canvas_juego;
         }
 
         public Rectangle crear_plataforma(Canvas canvas_juego, Figura figuraPlataforma)

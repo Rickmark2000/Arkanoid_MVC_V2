@@ -70,6 +70,7 @@
     <Compile Include="Crear elementos juego\Implementar Shape\ImplementarRectangulo.cs" />
     <Compile Include="Crear elementos juego\Factory\FactoryShape.cs" />
     <Compile Include="Crear elementos juego\Crear Shapes\CrearShape.cs" />
+    <Compile Include="Crear elementos juego\Posicion Bloques\PosicionBloque.cs" />
     <Compile Include="Interfaces\Controles\IControles.cs" />
     <Compile Include="Interfaces\Diseño Canvas\ICrearFiguras.cs" />
     <Compile Include="Interfaces\Factory\IFactory.cs" />
