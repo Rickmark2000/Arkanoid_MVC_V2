@@ -61,7 +61,9 @@
     <Compile Include="Acceso DB\ControladoresDB\ControladorPuntuaciones.cs" />
     <Compile Include="Acceso DB\ControladoresDB\ControladorUsuarios.cs" />
     <Compile Include="Controles\ControlesJugador.cs" />
-    <Compile Include="Crear elementos juego\Crear Figuras\CrearFiguras.cs" />
+    <Compile Include="Crear elementos juego\Crear Figuras\CrearFigura.cs" />
+    <Compile Include="Crear elementos juego\Crear Figuras\CrearFiguraSinVelocidad.cs" />
+    <Compile Include="Crear elementos juego\Crear Figuras\CrearFiguraVelocidad.cs" />
     <Compile Include="Crear elementos juego\Factory\FactoryFigura.cs" />
     <Compile Include="Crear elementos juego\Editar Shape\EditarShape.cs" />
     <Compile Include="Crear elementos juego\Editar Shape\EditarElipse.cs" />

@@ -1,4 +1,5 @@
 ﻿using Arkanoid_MVC.Modelos.Enumeraciones;
+using Arkanoid_MVC.Modelos.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

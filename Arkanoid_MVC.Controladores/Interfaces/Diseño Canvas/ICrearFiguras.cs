@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Controladores.Interfaces.Diseño_Canvas
 {
-    public interface ICrearFiguras
+    public interface ICrearFiguras<I> where I:Figura
     {
-        Figura crear(double ancho, double alto, double tamano, double posicionX, double posicionY,ETipoFigura tipo);
+        I crear(double ancho, double alto, double tamano, double posicionX, double posicionY, ETipoFigura tipo);
+        I crear(double ancho, double alto, double posicionX, double posicionY, ETipoFigura tipo);
+        I crear(double tamano, double posicionX, double posicionY, ETipoFigura tipo);
     }
 }

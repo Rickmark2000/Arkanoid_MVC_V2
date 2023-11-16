@@ -16,25 +16,18 @@ namespace Arkanoid_MVC.Controladores.Juego
 {
     public class CrearShape
     {
-        private IEditarShape diseño;
+        private IEditarShape editar;
 
         public Ellipse crear_bola(double with, double height, Canvas canvas_juego, Figura figuraBola)
         {
-            figuraBola.posicionX = with / 2;
-            figuraBola.posicionY = height / 2;
-            diseño = new EditarElipse(figuraBola);
-            return (Ellipse)diseño.Implementar(ref canvas_juego, Colors.Red, Colors.Black, 2);
+            editar = new EditarElipse(figuraBola);
+            return (Ellipse)editar.Implementar(ref canvas_juego, Colors.Red, Colors.Black, 2);
         }
 
         public ManagementBloques crear_bloques(int num_bloques, Canvas canvas_juego, double with, Figura figuraBloque)
         {
             Rectangle[] bloques = new Rectangle[num_bloques];
             IManagement<Rectangle> bloquesManagement = new ManagementBloques();
-
-            figuraBloque.ancho = 110;
-            figuraBloque.alto = 30;
-            figuraBloque.posicionX = 26;
-            figuraBloque.posicionY = 44;
 
             int separacionX = 11;
             int separacionY = 11;
@@ -49,8 +42,8 @@ namespace Arkanoid_MVC.Controladores.Juego
                     figuraBloque.posicionY += figuraBloque.alto + separacionY;
                 }
 
-                diseño = new EditarRectangulo(figuraBloque);
-                bloques[i] = (Rectangle)diseño.Implementar(ref canvas_juego, Colors.Aqua, Colors.Black, 2);
+                editar = new EditarRectangulo(figuraBloque);
+                bloques[i] = (Rectangle)editar.Implementar(ref canvas_juego, Colors.Aqua, Colors.Black, 2);
                 bloquesManagement.anadir(bloques[i]);
 
                 tamano_total += figuraBloque.ancho + separacionX;
@@ -63,14 +56,10 @@ namespace Arkanoid_MVC.Controladores.Juego
         }
 
 
-        public Rectangle crear_plataforma(double with, double height, Canvas canvas_juego, Figura figuraPlataforma)
+        public Rectangle crear_plataforma(Canvas canvas_juego, Figura figuraPlataforma)
         {
-            figuraPlataforma.ancho = 160;
-            figuraPlataforma.alto = 20;
-            figuraPlataforma.posicionX = with / 2;
-            figuraPlataforma.posicionY = height - 60;
-            diseño = new EditarRectangulo(figuraPlataforma);
-            return (Rectangle)diseño.Implementar(ref canvas_juego, Colors.Red, Colors.Black, 2);
+            editar = new EditarRectangulo(figuraPlataforma);
+            return (Rectangle)editar.Implementar(ref canvas_juego, Colors.Red, Colors.Black, 2);
         }
     }
 }

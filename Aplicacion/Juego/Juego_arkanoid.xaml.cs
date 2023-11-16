@@ -21,6 +21,9 @@ using Arkanoid_MVC.Vista;
 using Arkanoid_MVC.Controladores.Interfaces.Controles;
 using Arkanoid_MVC.Controladores.Crear_elementos_juego.Crear_Figuras;
 using Arkanoid_MVC.Modelos.Enumeraciones;
+using Arkanoid_MVC.Controladores.Interfaces.Diseño_Canvas;
+using Arkanoid_MVC.Controladores.Crear_elementos_juego.Diseños.Diseño_Figuras;
+using System.Windows.Media.Media3D;
 
 namespace Arkanoid_MVC
 {
@@ -35,31 +38,33 @@ namespace Arkanoid_MVC
         private FiguraSinVelocidad bloque;
         private FiguraVelocidad bola, plataforma;
 
-        public Juego_arkanoid(float velocidad_jugador,float velocidad_bola, int num_bloques, Conexiones conexion)
+        public Juego_arkanoid(Conexiones conexion)
         {
             InitializeComponent();
             this.ResizeMode = ResizeMode.CanMinimize;
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.conexiones = conexion;
 
-            preparar_partida(velocidad_jugador, velocidad_bola, num_bloques);
+            preparar_partida();
 
             iniciar_partida();
 
         }
 
-        private void preparar_partida(float velocidad_jugador, float velocidad_bola, int num_bloques)
+        private void preparar_partida()
         {
             Random random = new Random();
             IFactory<Figura> factory = new FactoryFigura();
+            ICrearFiguras<FiguraSinVelocidad> figuraSinVelocidad = new CrearFiguraSinVelocidad();
+            ICrearFiguras<FiguraVelocidad> figuraVelocidad = new CrearFiguraVelocidad();
 
-            bloque = (FiguraSinVelocidad)factory.crear_figura(ETipoFigura.SinVelocidad);
-            plataforma = ((FiguraVelocidad)(factory.crear_figura(ETipoFigura.Velocidad)));
-            bola = ((FiguraVelocidad)(factory.crear_figura(ETipoFigura.Velocidad)));
+            plataforma = figuraVelocidad.crear(160, 20, Width/2, Height-60, ETipoFigura.Velocidad);
+            bloque = figuraSinVelocidad.crear(110,30, 26, 44, ETipoFigura.SinVelocidad);
+            bola = figuraVelocidad.crear(35, Width/2, Height/2, ETipoFigura.Velocidad);
 
-            bloque.num = random.Next(4, num_bloques);
-            plataforma.velocidad = velocidad_jugador;
-            bola.velocidad = velocidad_bola;
+            bloque.num = random.Next(4, 20);
+            plataforma.velocidad = 5.3f;
+            bola.velocidad = 2.8f;
         }
 
         private void iniciar_partida()

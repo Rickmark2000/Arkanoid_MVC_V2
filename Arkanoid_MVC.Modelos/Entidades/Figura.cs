@@ -9,6 +9,7 @@ namespace Arkanoid_MVC.Modelos.Modelos
 {
     public abstract class Figura
     {
+
         public double ancho { get; set; }
         public double alto { get; set; }
         public double tamano { get; set; }

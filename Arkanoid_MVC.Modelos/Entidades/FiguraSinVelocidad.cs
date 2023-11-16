@@ -9,6 +9,7 @@ namespace Arkanoid_MVC.Modelos.Modelos
 {
     public class FiguraSinVelocidad:Figura
     {
+
         public int numGolpes {  get; set; }
         public int num {  get; set; }
     }

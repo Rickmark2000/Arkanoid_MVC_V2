@@ -39,10 +39,8 @@ namespace Arkanoid_MVC.Vista
 
         public void empezar_partida(object sender, RoutedEventArgs e)
         {
-            int num_bolas = 20;
-            float velocidad_jugador = 5.3f;
-            float velocidad_bola = 2.8f;
-            Juego_arkanoid juego = new Juego_arkanoid(velocidad_jugador, velocidad_bola,num_bolas, conexion);
+            
+            Juego_arkanoid juego = new Juego_arkanoid(conexion);
             juego.Show();
             this.Close();
         }

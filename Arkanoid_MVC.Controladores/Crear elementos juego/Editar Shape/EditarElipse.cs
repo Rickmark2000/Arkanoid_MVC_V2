@@ -23,8 +23,8 @@ namespace Arkanoid_MVC.Controladores.Diseño_Figuras
         public override Shape Implementar(ref Canvas element, Color color_fondo, Color color_borde, int grosor_borde)
         {            
             Ellipse bola = (Ellipse)factory.crear_figura(ETipoShape.Elipse);
-            bola.Width = figura.ancho;
-            bola.Height = figura.alto;
+            bola.Width = figura.tamano;
+            bola.Height = figura.tamano;
             Canvas.SetTop(bola, figura.posicionY);
             Canvas.SetLeft(bola, figura.posicionX);
             bola.Fill = new SolidColorBrush(color_fondo);
