@@ -6,12 +6,12 @@ namespace Arkanoid_MVC.Controladores.Colisiones
 {
     public class ColisionInterseccion
     {
-        public void Colision_interseccionY(Ellipse bola, Rectangle bloque,ref double posY)
+        public void Colision_interseccionY(Ellipse bola, Rectangle bloque, ref double posY)
         {
-            bool arriba = (Canvas.GetTop(bola) + bola.Height) > (Canvas.GetTop(bloque)-bola.Height);
+            bool arriba = (Canvas.GetTop(bola) + bola.Height) > (Canvas.GetTop(bloque) - bola.Height);
             bool abajo = (Canvas.GetTop(bola) > (Canvas.GetTop(bloque) - bloque.Height));
 
-           
+
 
             if (arriba)
             {
@@ -23,11 +23,11 @@ namespace Arkanoid_MVC.Controladores.Colisiones
             }
             if (abajo)
             {
-                posY *=-1;
+                posY *= -1;
             }
-            
-            
-          
+
+
+
         }
 
         public void Colision_interseccionX(Ellipse bola, Rectangle bloque, ref double posX)
@@ -37,16 +37,17 @@ namespace Arkanoid_MVC.Controladores.Colisiones
             bool izquierda = Canvas.GetLeft(bola) + bola.Width < (Canvas.GetLeft(bloque));
             bool derecha = Canvas.GetLeft(bola) > (Canvas.GetLeft(bloque) + bloque.Width);
 
-            if (MitadDerecha||derecha)
+            if (MitadDerecha || derecha)
             {
                 posX = Math.Abs(posX);
-            }else if (MitadIzquierda||izquierda)
+            }
+            else if (MitadIzquierda || izquierda)
             {
                 if (posX > 0)
                 {
                     posX *= -1;
                 }
-               
+
             }
 
 

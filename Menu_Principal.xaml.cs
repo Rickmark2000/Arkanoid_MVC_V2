@@ -27,6 +27,8 @@ namespace Arkanoid_MVC.Vista
         public Menu_Principal(Conexiones conexiones)
         {
             InitializeComponent();
+            this.ResizeMode = ResizeMode.CanMinimize;
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.conexion = conexiones;
             Title = "Menu principal";
             empezar.Content = "Empezar partida";

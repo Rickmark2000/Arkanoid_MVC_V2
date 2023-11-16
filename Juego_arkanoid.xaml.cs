@@ -33,6 +33,8 @@ namespace Arkanoid_MVC
         public Juego_arkanoid(float velocidad_jugador,float velocidad_bola, int num_bolas, Conexiones conexion)
         {
             InitializeComponent();
+            this.ResizeMode = ResizeMode.CanMinimize;
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Random random = new Random();
             this.conexiones = conexion;
             controles = new ControlesJugador(ventana, velocidad_jugador);

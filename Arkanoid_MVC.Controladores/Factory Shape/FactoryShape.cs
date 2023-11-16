@@ -24,7 +24,7 @@ namespace Arkanoid_MVC.Controladores.Factory
                     break;
 
             }
-            
+
             return figura;
         }
         public abstract Shape crear();

@@ -19,7 +19,7 @@ namespace Arkanoid_MVC
     public partial class MainWindow : Window
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
-        private string connectionString2 = ConfigurationManager.ConnectionStrings["ArkanoidLocalDB"].ConnectionString;
+        private string connectionString2 = ConfigurationManager.ConnectionStrings["ArkanoidMVC"].ConnectionString;
         
         private string proyectoRaiz = System.IO.Path.GetFullPath(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\"));
         private Conexiones conexion;
@@ -29,6 +29,8 @@ namespace Arkanoid_MVC
         public MainWindow()
         {
             InitializeComponent();
+            this.ResizeMode = ResizeMode.CanMinimize;
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             boton_login.Content = "Logearse";
             boton_registro.Content = "Registrarse";
            

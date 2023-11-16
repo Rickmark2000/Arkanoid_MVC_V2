@@ -13,10 +13,10 @@ namespace Arkanoid_MVC.Controladores.Colisiones
         private ColisionInterseccion interseccion = new ColisionInterseccion();
 
 
-        public void colisiona(Ellipse bola,ref double posX,ref double posY,ref Canvas element,ref bool gameOver)
+        public void colisiona(Ellipse bola, ref double posX, ref double posY, ref Canvas element, ref bool gameOver)
         {
             IObservarColision<Ellipse, Rectangle> observar = new ObservarColision();
-            ETipoColision tipo = observar.estado(bola,element);
+            ETipoColision tipo = observar.estado(bola, element);
 
             switch (tipo)
             {
@@ -32,31 +32,31 @@ namespace Arkanoid_MVC.Controladores.Colisiones
             }
         }
 
-        public void colisiona(Ellipse bola, ref double posX, ref double posY,Rectangle plataforma)
+        public void colisiona(Ellipse bola, ref double posX, ref double posY, Rectangle plataforma)
         {
-    
+
             ETipoColision tipo = observar.estado(bola, plataforma);
 
             switch (tipo)
             {
                 case ETipoColision.EnPlataforma:
                     interseccion.Colision_interseccionY(bola, plataforma, ref posY);
-                 
+
                     break;
-         
+
             }
         }
 
-        public void colisiona(Ellipse bola, ref double posX, ref double posY,ref int score,ref Canvas element,IManagement<Rectangle> bloques)
+        public void colisiona(Ellipse bola, ref double posX, ref double posY, ref int score, ref Canvas element, IManagement<Rectangle> bloques)
         {
             ColisionBloque colisionBloque = new ColisionBloque();
-            Rectangle bloque = colisionBloque.Colision_Bloque(bloques,element,bola);
+            Rectangle bloque = colisionBloque.Colision_Bloque(bloques, element, bola);
 
-            if(bloque!=null)
+            if (bloque != null)
             {
                 score++;
-                interseccion.Colision_interseccionY(bola, bloque,ref posY);
-                interseccion.Colision_interseccionX(bola,bloque,ref posX);
+                interseccion.Colision_interseccionY(bola, bloque, ref posY);
+                interseccion.Colision_interseccionX(bola, bloque, ref posX);
             }
         }
 

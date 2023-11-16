@@ -27,7 +27,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
 
         public override Jugadores buscar(Jugadores entity)
         {
-            return lista.Find(n=>n.Equals(entity));
+            return lista.Find(n => n.Equals(entity));
         }
 
         public override Jugadores buscar(int value)
@@ -54,12 +54,12 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
 
         public override bool repetido(Jugadores entity)
         {
-            return lista.Any(n=>n.id == entity.id);
+            return lista.Any(n => n.id == entity.id);
         }
 
         public override void vaciar()
         {
-            foreach(Jugadores jugador in lista)
+            foreach (Jugadores jugador in lista)
             {
                 repositorio.eliminar(jugador);
             }

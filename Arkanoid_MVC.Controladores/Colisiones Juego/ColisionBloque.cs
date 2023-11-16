@@ -9,7 +9,7 @@ namespace Arkanoid_MVC.Controladores.Colisiones
     {
         public Rectangle Colision_Bloque(IManagement<Rectangle> bloques, Canvas element, Ellipse bola)
         {
-            Rectangle bloque = detectar_colision_bloque(bola, bloques,element);
+            Rectangle bloque = detectar_colision_bloque(bola, bloques, element);
             if (bloque != null)
             {
                 element.Children.Remove(bloque);
@@ -20,7 +20,7 @@ namespace Arkanoid_MVC.Controladores.Colisiones
             {
                 return null;
             }
-                
+
         }
 
 
@@ -41,6 +41,6 @@ namespace Arkanoid_MVC.Controladores.Colisiones
         }
 
 
-        
+
     }
 }

@@ -17,6 +17,7 @@ namespace Arkanoid_MVC
         public ScoreWindow(Conexiones conexion)
         {
             InitializeComponent();
+            this.ResizeMode = ResizeMode.CanMinimize;
             conexionConsultas = new Consulta(conexion);
 
             string consulta = "select u.Id,u.nombre,j.nick,u.email,p.puntuacion,j.vidas " +

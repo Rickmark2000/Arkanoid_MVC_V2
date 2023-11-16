@@ -10,7 +10,7 @@ namespace Arkanoid_MVC.Controladores.Controles
         private bool goLeft, goRight;
         private float velocidad;
 
-        public ControlesJugador(UIElement element,float velocidad)
+        public ControlesJugador(UIElement element, float velocidad)
         {
             element.AddHandler(UIElement.PreviewKeyUpEvent, new KeyEventHandler(PreviewKeyUpHandler));
             element.AddHandler(UIElement.PreviewKeyDownEvent, new KeyEventHandler(PreviewKeyDownHandler));
@@ -40,7 +40,7 @@ namespace Arkanoid_MVC.Controladores.Controles
 
             double limiteIzquierdo = 0;
             double limiteDerecho = CanvasJuego.ActualWidth - o.Width;
-            if (!(Canvas.GetLeft(o) < limiteIzquierdo)&& goLeft)
+            if (!(Canvas.GetLeft(o) < limiteIzquierdo) && goLeft)
             {
                 posX -= velocidad;
             }

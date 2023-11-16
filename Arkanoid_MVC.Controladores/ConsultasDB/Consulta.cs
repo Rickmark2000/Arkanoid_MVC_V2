@@ -15,7 +15,7 @@ namespace Arkanoid_MVC.Controladores.Conexion
 
         public Consulta(Conexiones conexiones)
         {
-            consultas = new DBConsultas(conexiones.conexion,conexiones.raizProyecto);
+            consultas = new DBConsultas(conexiones.conexion, conexiones.raizProyecto);
         }
 
         public void mostrar_select(string consulta, DataGrid datos)

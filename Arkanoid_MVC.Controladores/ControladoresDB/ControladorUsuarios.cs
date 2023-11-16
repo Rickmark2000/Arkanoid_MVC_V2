@@ -29,7 +29,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
         }
         public override Usuarios buscar(Usuarios entity)
         {
-            return lista.FirstOrDefault(n=>n.usuario.Equals(entity.usuario));
+            return lista.FirstOrDefault(n => n.usuario.Equals(entity.usuario));
         }
 
         public override Usuarios buscar(int value)
@@ -50,7 +50,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
                 entity.id++;
             }
 
-          repositorio.registrar(entity);
+            repositorio.registrar(entity);
             lista = listaObjetos();
         }
 

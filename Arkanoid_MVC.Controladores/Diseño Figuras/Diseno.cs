@@ -9,7 +9,7 @@ using Arkanoid_MVC.Modelos.Modelos;
 
 namespace Arkanoid_MVC.Controladores.Diseño_Figuras
 {
-    public abstract class Diseno:IDisenoFigura
+    public abstract class Diseno : IDisenoFigura
     {
         protected Figura figura;
 
@@ -18,7 +18,7 @@ namespace Arkanoid_MVC.Controladores.Diseño_Figuras
             this.figura = figura;
         }
 
-        public abstract Shape Implementar(ref Canvas element,Color color_fondo,Color color_borde,int grosor_borde);
+        public abstract Shape Implementar(ref Canvas element, Color color_fondo, Color color_borde, int grosor_borde);
     }
 
 }

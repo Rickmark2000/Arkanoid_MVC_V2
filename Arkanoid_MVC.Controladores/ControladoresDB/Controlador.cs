@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Controladores.ControladoresDB
 {
-    public abstract class Controlador<I>:IControladores<I>, IListaClase<I>, IComprobarRepetido<I> where I : class
+    public abstract class Controlador<I> : IControladores<I>, IListaClase<I>, IComprobarRepetido<I> where I : class
     {
         protected readonly Conexiones conexiones;
         protected DBContexto contexto;
@@ -18,7 +18,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
         {
             this.conexiones = conexiones;
             contexto = new DBContexto(conexiones.conexion);
-            
+
         }
 
         public abstract List<I> listaObjetos();

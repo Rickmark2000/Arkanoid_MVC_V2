@@ -27,7 +27,7 @@ namespace Arkanoid_MVC.Controladores.Management
         {
             if (lista.Contains(value))
             {
-                return lista.Find(n=> n.Equals(value));
+                return lista.Find(n => n.Equals(value));
             }
             else { return null; }
         }
@@ -42,6 +42,6 @@ namespace Arkanoid_MVC.Controladores.Management
             return lista.ToList();
         }
 
-        
+
     }
 }
