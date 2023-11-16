@@ -27,7 +27,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
 
         public override Passwords buscar(Passwords entity)
         {
-            return lista.FirstOrDefault(n => n.password.Contains(entity.password));
+            return lista.FirstOrDefault(n => n.password.Equals(entity.password));
         }
 
         public override Passwords buscar(int value)

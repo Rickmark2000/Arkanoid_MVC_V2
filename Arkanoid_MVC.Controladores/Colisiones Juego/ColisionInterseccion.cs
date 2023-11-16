@@ -11,8 +11,6 @@ namespace Arkanoid_MVC.Controladores.Colisiones
             bool arriba = (Canvas.GetTop(bola) + bola.Height) > (Canvas.GetTop(bloque) - bola.Height);
             bool abajo = (Canvas.GetTop(bola) > (Canvas.GetTop(bloque) - bloque.Height));
 
-
-
             if (arriba)
             {
                 if (posY > 0)

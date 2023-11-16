@@ -78,7 +78,7 @@ namespace Arkanoid_MVC
             usuarios = new ControladorUsuarios(conexion);
             contrasenas = new ControladorPasswords(conexion);
             Usuarios usuario_login = usuarios.buscar(new Usuarios(usuario));
-            Passwords pass_login = contrasenas.buscar(new Passwords(1,3,contrasena));
+            Passwords pass_login = contrasenas.buscar(new Passwords(3,contrasena));
 
             if ( usuario_login != null && pass_login != null)
             {
