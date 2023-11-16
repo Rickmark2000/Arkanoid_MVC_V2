@@ -9,11 +9,7 @@ namespace Arkanoid_MVC.Modelos.Modelos
 {
     public class FiguraSinVelocidad:Figura
     {
-
-        public FiguraSinVelocidad(ETipoShape tipo) : base(tipo)
-        {
-        }
-
         public int numGolpes {  get; set; }
+        public int num {  get; set; }
     }
 }

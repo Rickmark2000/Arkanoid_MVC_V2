@@ -1,4 +1,5 @@
 ﻿using Arkanoid_MVC.Controladores.Factory;
+using Arkanoid_MVC.Modelos.Enumeraciones;
 using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Modelos.Modelos;
 using System;
@@ -13,15 +14,15 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Controladores.Diseño_Figuras
 {
-    public class DisenoElipse : Diseno
+    public class EditarElipse : EditarShape
     {
-        public DisenoElipse(Figura figura) : base(figura)
+        public EditarElipse(Figura figura) : base(figura)
         {
         }
 
         public override Shape Implementar(ref Canvas element, Color color_fondo, Color color_borde, int grosor_borde)
         {            
-            Ellipse bola = (Ellipse)factory.crear_figura(figura.tipoFigura);
+            Ellipse bola = (Ellipse)factory.crear_figura(ETipoShape.Elipse);
             bola.Width = figura.ancho;
             bola.Height = figura.alto;
             Canvas.SetTop(bola, figura.posicionY);

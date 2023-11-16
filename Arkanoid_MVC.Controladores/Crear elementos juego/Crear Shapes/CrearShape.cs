@@ -16,30 +16,25 @@ namespace Arkanoid_MVC.Controladores.Juego
 {
     public class CrearShape
     {
+        private IEditarShape diseño;
 
-        public Ellipse crear_bola(double with, double height, Canvas canvas_juego)
+        public Ellipse crear_bola(double with, double height, Canvas canvas_juego, Figura figuraBola)
         {
-            DisenoElipse bolaDiseño;
-            Figura bola = new FiguraVelocidad(ETipoShape.Elipse);
-            bola.ancho = 35;
-            bola.alto = 35;
-            bola.posicionX = with / 2;
-            bola.posicionY = height / 2;
-            bolaDiseño = new DisenoElipse(bola);
-            return (Ellipse)bolaDiseño.Implementar(ref canvas_juego, Colors.Red, Colors.Black, 2);
+            figuraBola.posicionX = with / 2;
+            figuraBola.posicionY = height / 2;
+            diseño = new EditarElipse(figuraBola);
+            return (Ellipse)diseño.Implementar(ref canvas_juego, Colors.Red, Colors.Black, 2);
         }
 
-        public ManagementBloques crear_bloques(int num_bloques, Canvas canvas_juego, double with)
+        public ManagementBloques crear_bloques(int num_bloques, Canvas canvas_juego, double with, Figura figuraBloque)
         {
             Rectangle[] bloques = new Rectangle[num_bloques];
             IManagement<Rectangle> bloquesManagement = new ManagementBloques();
-            DisenoRectangulo bloqueDiseño;
-            Figura bloqueFigura = new FiguraSinVelocidad(ETipoShape.Rectangulo);
 
-            bloqueFigura.ancho = 110;
-            bloqueFigura.alto = 30;
-            bloqueFigura.posicionX = 26;
-            bloqueFigura.posicionY = 44;
+            figuraBloque.ancho = 110;
+            figuraBloque.alto = 30;
+            figuraBloque.posicionX = 26;
+            figuraBloque.posicionY = 44;
 
             int separacionX = 11;
             int separacionY = 11;
@@ -47,19 +42,19 @@ namespace Arkanoid_MVC.Controladores.Juego
 
             for (int i = 0; i < bloques.Length; i++)
             {
-                if (tamano_total + bloqueFigura.ancho > with)
+                if (tamano_total + figuraBloque.ancho > with)
                 {
                     tamano_total = 0;
-                    bloqueFigura.posicionX = 26;
-                    bloqueFigura.posicionY += bloqueFigura.alto + separacionY;
+                    figuraBloque.posicionX = 26;
+                    figuraBloque.posicionY += figuraBloque.alto + separacionY;
                 }
 
-                bloqueDiseño = new DisenoRectangulo(bloqueFigura);
-                bloques[i] = (Rectangle)bloqueDiseño.Implementar(ref canvas_juego, Colors.Aqua, Colors.Black, 2);
+                diseño = new EditarRectangulo(figuraBloque);
+                bloques[i] = (Rectangle)diseño.Implementar(ref canvas_juego, Colors.Aqua, Colors.Black, 2);
                 bloquesManagement.anadir(bloques[i]);
 
-                tamano_total += bloqueFigura.ancho + separacionX;
-                bloqueFigura.posicionX += separacionX + bloqueFigura.ancho;
+                tamano_total += figuraBloque.ancho + separacionX;
+                figuraBloque.posicionX += separacionX + figuraBloque.ancho;
 
 
             }
@@ -68,16 +63,14 @@ namespace Arkanoid_MVC.Controladores.Juego
         }
 
 
-        public Rectangle crear_plataforma(double with, double height, Canvas canvas_juego)
+        public Rectangle crear_plataforma(double with, double height, Canvas canvas_juego, Figura figuraPlataforma)
         {
-            DisenoRectangulo dieseñoPlataforma;
-            Figura plataforma = new FiguraVelocidad(ETipoShape.Rectangulo);
-            plataforma.ancho = 160;
-            plataforma.alto = 20;
-            plataforma.posicionX = with / 2;
-            plataforma.posicionY = height - 60;
-            dieseñoPlataforma = new DisenoRectangulo(plataforma);
-            return (Rectangle)dieseñoPlataforma.Implementar(ref canvas_juego, Colors.Red, Colors.Black, 2);
+            figuraPlataforma.ancho = 160;
+            figuraPlataforma.alto = 20;
+            figuraPlataforma.posicionX = with / 2;
+            figuraPlataforma.posicionY = height - 60;
+            diseño = new EditarRectangulo(figuraPlataforma);
+            return (Rectangle)diseño.Implementar(ref canvas_juego, Colors.Red, Colors.Black, 2);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Arkanoid_MVC.Controladores.Factory;
+using Arkanoid_MVC.Modelos.Enumeraciones;
 using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Modelos.Modelos;
 using System;
@@ -14,16 +15,16 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Controladores.Diseño_Figuras
 {
-    public class DisenoRectangulo : Diseno
+    public class EditarRectangulo : EditarShape
     {
 
-        public DisenoRectangulo(Figura figura) : base(figura)
+        public EditarRectangulo(Figura figura) : base(figura)
         {
         }
 
         public override Shape Implementar(ref Canvas element, Color color_fondo, Color color_borde, int grosor_borde)
         {
-            Rectangle plataforma = (Rectangle)factory.crear_figura(figura.tipoFigura);
+            Rectangle plataforma = (Rectangle)factory.crear_figura(ETipoShape.Rectangulo);
             plataforma.Width = figura.ancho;
             plataforma.Height = figura.alto;
             Canvas.SetTop(plataforma, figura.posicionY);

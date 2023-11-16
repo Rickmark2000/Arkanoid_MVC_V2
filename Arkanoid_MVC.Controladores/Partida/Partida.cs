@@ -31,23 +31,27 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
         private Rectangle plataforma_jugador;
         private Ellipse bola;
         private IManagement<Rectangle> bloques;
+        private Figura figuraBola,figuraPlataforma,figuraBloque;
         private double BolaInicialX, BolaInicialY, PlataformaInicialX,actualBolaX, actualBolaY;
-        private int num_bolas;
+        private int num_bloques;
         private bool isGameOver;
 
-        public Partida(int num_bolas, float actualizar_pos_bola)
+        public Partida(FiguraVelocidad bola,FiguraSinVelocidad bloque, FiguraVelocidad plataforma)
         {
-            this.num_bolas = num_bolas;
-            this.actualBolaX = actualizar_pos_bola;
-            this.actualBolaY = actualizar_pos_bola;
+            this.num_bloques = bloque.num;
+            this.actualBolaX = bola.velocidad;
+            this.actualBolaY = bola.velocidad;
+            this.figuraBloque = bloque;
+            this.figuraBola = bola;
+            this.figuraPlataforma = plataforma;
         }
 
 
         public void prepararJuego(double Width, double Height,Canvas CanvasJuego)
         {
-            bola = crear.crear_bola(Width, Height, CanvasJuego);
-            plataforma_jugador = crear.crear_plataforma(Width, Height, CanvasJuego);
-            bloques = crear.crear_bloques(num_bolas, CanvasJuego, Width);
+            bola = crear.crear_bola(Width, Height, CanvasJuego,figuraBola);
+            plataforma_jugador = crear.crear_plataforma(Width, Height, CanvasJuego,figuraPlataforma);
+            bloques = crear.crear_bloques(num_bloques, CanvasJuego, Width,figuraBloque);
         }
 
         public void Guardar_posiciones_iniciales()

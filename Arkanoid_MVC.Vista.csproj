@@ -236,7 +236,7 @@
     <Compile Include="Aplicacion\Menus\ScoreWindow.xaml.cs">
       <DependentUpon>ScoreWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Aplicacion\Menus\Juego_arkanoid.xaml">
+    <Page Include="Aplicacion\Juego\Juego_arkanoid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -248,7 +248,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Aplicacion\Menus\Juego_arkanoid.xaml.cs">
+    <Compile Include="Aplicacion\Juego\Juego_arkanoid.xaml.cs">
       <DependentUpon>Juego_arkanoid.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">

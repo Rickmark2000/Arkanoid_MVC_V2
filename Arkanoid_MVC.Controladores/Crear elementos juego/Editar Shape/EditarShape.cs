@@ -10,12 +10,12 @@ using Arkanoid_MVC.Controladores.Factory;
 
 namespace Arkanoid_MVC.Controladores.Diseño_Figuras
 {
-    public abstract class Diseno : IDisenoFigura
+    public abstract class EditarShape : IEditarShape
     {
         protected Figura figura;
         protected IFactory<Shape> factory;
 
-        public Diseno(Figura figura)
+        public EditarShape(Figura figura)
         {
             this.figura = figura;
             factory = new FactoryShape();

@@ -11,21 +11,15 @@ namespace Arkanoid_MVC.Controladores.Crear_elementos_juego.Crear_Figuras
 {
     public class FactoryFigura : IFactory<Figura>
     {
-        private ETipoShape tipoShape;
-
-        public FactoryFigura(ETipoShape tipoShape)
-        {
-            this.tipoShape = tipoShape;
-        }
 
         public Figura crear_figura(Enum tipo)
         {
             switch (tipo)
             {
                 case ETipoFigura.Velocidad:
-                    return new FiguraVelocidad(tipoShape);
+                    return new FiguraVelocidad();
                 case ETipoFigura.SinVelocidad:
-                    return new FiguraSinVelocidad(tipoShape);
+                    return new FiguraSinVelocidad();
             }
             return null;
         }

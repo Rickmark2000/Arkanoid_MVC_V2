@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Arkanoid_MVC"
         mc:Ignorable="d"
         Title="Juego_arkanoid" Height="450" Width="800" Name="ventana">
-    <Grid Name="gridJuego">
+    <Grid>
         <Canvas Name="CanvasJuego" Background="AliceBlue" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=Window}}" 
-   Height="{Binding Height, RelativeSource={RelativeSource AncestorType=Window}}">
+             Height="{Binding Height, RelativeSource={RelativeSource AncestorType=Window}}">
             <Label x:Name="txtScore" Content="Puntuacion:0" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.713,0.015" Width="218"/>
         </Canvas>
 

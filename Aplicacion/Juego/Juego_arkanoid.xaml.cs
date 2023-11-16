@@ -19,6 +19,8 @@ using Arkanoid_MVC.Controladores.Partida_Manage;
 using Arkanoid_MVC.Controladores.Conexion;
 using Arkanoid_MVC.Vista;
 using Arkanoid_MVC.Controladores.Interfaces.Controles;
+using Arkanoid_MVC.Controladores.Crear_elementos_juego.Crear_Figuras;
+using Arkanoid_MVC.Modelos.Enumeraciones;
 
 namespace Arkanoid_MVC
 {
@@ -30,23 +32,44 @@ namespace Arkanoid_MVC
         private IPartida<Rectangle> partida;
         private IControles<Rectangle> controles;
         private Conexiones conexiones;
+        private FiguraSinVelocidad bloque;
+        private FiguraVelocidad bola, plataforma;
 
-        public Juego_arkanoid(float velocidad_jugador,float velocidad_bola, int num_bolas, Conexiones conexion)
+        public Juego_arkanoid(float velocidad_jugador,float velocidad_bola, int num_bloques, Conexiones conexion)
         {
             InitializeComponent();
             this.ResizeMode = ResizeMode.CanMinimize;
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.conexiones = conexion;
 
-            Random random = new Random();
+            preparar_partida(velocidad_jugador, velocidad_bola, num_bloques);
 
-            controles = new ControlesJugador(ventana, velocidad_jugador);
-            partida = new Partida(random.Next(9,num_bolas),velocidad_bola);
+            iniciar_partida();
+
+        }
+
+        private void preparar_partida(float velocidad_jugador, float velocidad_bola, int num_bloques)
+        {
+            Random random = new Random();
+            IFactory<Figura> factory = new FactoryFigura();
+
+            bloque = (FiguraSinVelocidad)factory.crear_figura(ETipoFigura.SinVelocidad);
+            plataforma = ((FiguraVelocidad)(factory.crear_figura(ETipoFigura.Velocidad)));
+            bola = ((FiguraVelocidad)(factory.crear_figura(ETipoFigura.Velocidad)));
+
+            bloque.num = random.Next(4, num_bloques);
+            plataforma.velocidad = velocidad_jugador;
+            bola.velocidad = velocidad_bola;
+        }
+
+        private void iniciar_partida()
+        {
+            controles = new ControlesJugador(ventana, plataforma.velocidad);
+            partida = new Partida(bola, bloque, plataforma);
             partida.prepararJuego(Width, Height, CanvasJuego);
             partida.Guardar_posiciones_iniciales();
 
             Iniciar_timer();
-
         }
 
         private void Iniciar_timer()
