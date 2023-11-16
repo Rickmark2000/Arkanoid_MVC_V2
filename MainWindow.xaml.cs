@@ -46,7 +46,7 @@ namespace Arkanoid_MVC
             string mail = registro_email.Text;
             string nombre = registro_nombre.Text;
             string apellidos = registro_apellidos.Text;
-            Usuarios usuario = new Usuarios(1,nombre,apellidos,mail,nombre_usuario);
+            Usuarios usuario = new Usuarios(nombre,apellidos,mail,nombre_usuario);
             usuarios = new ControladorUsuarios(conexion);
             contrasenas = new ControladorPasswords(conexion);
 

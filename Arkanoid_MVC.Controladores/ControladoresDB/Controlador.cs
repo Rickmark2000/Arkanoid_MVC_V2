@@ -17,7 +17,7 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
         public Controlador(Conexiones conexiones)
         {
             this.conexiones = conexiones;
-            contexto = new DBContexto(conexiones.conexion);
+            contexto = new DBContexto(conexiones);
 
         }
 

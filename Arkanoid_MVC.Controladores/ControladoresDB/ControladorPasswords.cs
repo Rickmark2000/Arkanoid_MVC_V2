@@ -43,11 +43,6 @@ namespace Arkanoid_MVC.Controladores.ControladoresDB
 
         public override void registrar(Passwords entity)
         {
-            while (repetido(entity))
-            {
-                entity.id++;
-            }
-
             repositorio.registrar(entity);
             lista = listaObjetos();
         }

@@ -1,4 +1,5 @@
 ﻿
+using Arkanoid_MVC.Controladores.Conexion;
 using Arkanoid_MVC.Modelos.Modelos;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,23 +13,22 @@ namespace Arkanoid_MVC.Modelos.ContextoDB
 {
     public class DBContexto: DbContext 
     {
-        private string _context;
+        private Conexiones _context;
         public DbSet<Jugadores> jugadores { get; set; }
         public DbSet<Puntuaciones> Puntuaciones { get; set; }
         public DbSet<Passwords> passwords { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
 
 
-        public DBContexto(string context)
+        public DBContexto(Conexiones context)
         {
             this._context = context;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string proyectoRaiz = System.IO.Path.GetFullPath(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\"));
-            AppDomain.CurrentDomain.SetData("DataDirectory", proyectoRaiz);
-            optionsBuilder.UseSqlServer(_context);
+            AppDomain.CurrentDomain.SetData("DataDirectory", _context.raizProyecto);
+            optionsBuilder.UseSqlServer(_context.conexion);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
