@@ -23,6 +23,13 @@ namespace Arkanoid_MVC.Modelos.Modelos
             this.puntuacion_record = puntuacion_record;
         }
 
+        public Puntuaciones(int idjugador, int puntuacion, int puntuacion_record)
+        {
+            this.idjugador = idjugador;
+            this.puntuacion = puntuacion;
+            this.puntuacion_record = puntuacion_record;
+        }
+
         public override string ToString()
         {
             return $"puntos:{puntuacion}, record:{puntuacion_record}";

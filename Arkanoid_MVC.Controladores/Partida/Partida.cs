@@ -102,11 +102,11 @@ namespace Arkanoid_MVC.Controladores.Partida_Manage
 
             } while (nombre_Jugador.Equals("") || (nombre_Jugador.Length < 3 ||  nombre_Jugador.Length > 3));
 
-            Jugadores jugador = new Jugadores(1,conexion.idSesion,score,nombre_Jugador,3);
+            Jugadores jugador = new Jugadores(conexion.idSesion,score,nombre_Jugador,3);
 
             controladorJugadores.registrar(jugador);
 
-            Puntuaciones puntuaciones = new Puntuaciones(1,jugador.id,score,score);
+            Puntuaciones puntuaciones = new Puntuaciones(jugador.id,score,score);
 
             controladorPuntuaciones.registrar(puntuaciones);
 

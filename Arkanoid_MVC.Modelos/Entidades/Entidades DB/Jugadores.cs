@@ -27,7 +27,16 @@ namespace Arkanoid_MVC.Modelos.Modelos
             this.nick = nick;
             this.vidas = vidas;
         }
-        
+
+        public Jugadores(int idUsuario, int puntuacion, string nick, int vidas)
+        {
+
+            this.idUsuario = idUsuario;
+            this.puntuacion = puntuacion;
+            this.nick = nick;
+            this.vidas = vidas;
+        }
+
 
         public override string ToString()
         {

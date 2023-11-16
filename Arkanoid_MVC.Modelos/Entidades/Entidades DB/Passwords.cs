@@ -22,6 +22,13 @@ namespace Arkanoid_MVC.Modelos.Modelos
             this.password = password;
         }
 
+
+        public Passwords(int id_Usuario, string password)
+        {
+            this.id_Usuario = id_Usuario;
+            this.password = password;
+        }
+
         public Passwords(string contrasena)
         {
             this.contrasena = contrasena;
