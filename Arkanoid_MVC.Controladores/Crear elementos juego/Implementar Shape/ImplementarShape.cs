@@ -10,18 +10,18 @@ using Arkanoid_MVC.Controladores.Factory;
 
 namespace Arkanoid_MVC.Controladores.Diseño_Figuras
 {
-    public abstract class EditarShape : IEditarShape
+    public abstract class ImplementarShape<I> : IImplementarShape<I> where I:Shape
     {
         protected Figura figura;
         protected IFactory<Shape> factory;
 
-        public EditarShape(Figura figura)
+        public ImplementarShape(Figura figura)
         {
             this.figura = figura;
             factory = new FactoryShape();
         }
 
-        public abstract Shape Implementar(ref Canvas element, Color color_fondo, Color color_borde, int grosor_borde);
+        public abstract I Implementar(ref Canvas element, Color color_fondo, Color color_borde, int grosor_borde);
     }
 
 }

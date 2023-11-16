@@ -10,8 +10,8 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Modelos.Interfaces
 {
-    public interface IEditarShape
+    public interface IImplementarShape<I> where I : Shape
     {
-        Shape Implementar(ref Canvas element, Color color_fondo, Color color_borde, int grosor_borde);
+        I Implementar(ref Canvas element, Color color_fondo, Color color_borde, int grosor_borde);
     }
 }

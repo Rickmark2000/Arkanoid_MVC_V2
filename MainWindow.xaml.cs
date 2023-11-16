@@ -36,10 +36,6 @@ namespace Arkanoid_MVC
             boton_registro.Content = "Registrarse";
 
             conexion = new Conexiones(connectionString, proyectoRaiz);
-            
-            Juego_arkanoid juego = new Juego_arkanoid(conexion);
-            juego.Show();
-            this.Close();
 
         }
 
