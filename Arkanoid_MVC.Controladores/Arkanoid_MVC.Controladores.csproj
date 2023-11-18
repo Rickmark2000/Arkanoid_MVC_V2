@@ -79,7 +79,6 @@
     <Compile Include="Interfaces\Controladores\IControladores.cs" />
     <Compile Include="Interfaces\Observar Colision\IObservarColision.cs" />
     <Compile Include="Interfaces\Partida\IPartida.cs" />
-    <Compile Include="Interfaces\Listas\IDiccionarioClase.cs" />
     <Compile Include="Interfaces\Listas\IListaClase.cs" />
     <Compile Include="Interfaces\Management\IManagement.cs" />
     <Compile Include="Managements\ManagementBloques.cs" />
